@@ -1,3 +1,26 @@
+/*
+  @bangoc 2020
+  Trong C,
+    +) Quy chuẩn ngôn ngữ chỉ quy ước kích thước tương đối giữa các
+    kiểu dữ liệu cơ bản, không quy ước các kích thước cụ thể. Nói
+    cách khác, nếu hỏi sizeof(int) bằng bao nhiêu? thì chúng ta chỉ
+    có câu trả lời cụ thể cho từng trường hợp cụ thể, có thể là 2, 4,
+    ... tùy thuộc vào kiến trúc máy tính và trình biên dịch được sử
+    dụng. Trong trường hợp tổng quát chúng ta chỉ có trật tự không
+    giảm kích thước của các kiểu dữ liệu cơ bản:
+      char  --  short   --  int    --    long   --  long long
+      float --  double  --  long double
+    +) Các triển khai cụ thể (trình biên dịch C) có thể tự lựa chọn
+    các kích thước tối ưu cho các kiểu dữ liệu cơ bản theo kiến trúc
+    phần cứng.
+  Đối với chương trình này, thông tin về kích thước các kiểu dữ liệu
+  cơ bản được xuất ra phụ thuộc vào cách biên dịch nó: Bằng trình
+  biên dịch nào? Cho kiến trúc máy tính gì (16, 32, hay 64 bits)? và
+  không phải là sự khẳng định về các kích thước cụ thể trong trường
+  hợp tổng quát. Nếu biên dịch theo các cách khác nhau, chương trình
+  thu được hoàn toàn có thể xuất ra các thông tin khác nhau.
+*/
+
 #include <stdio.h>
 
 int main() {
