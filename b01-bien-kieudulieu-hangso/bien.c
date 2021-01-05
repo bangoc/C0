@@ -7,12 +7,14 @@
 #include <stdio.h>
 
 int main() {
-  // Một số khai báo biến đơn giản theo định dạng:
+  // Một số khai báo biến đơn giản, không khởi tạo giá trị ban đầu
+  // cho biến, theo định dạng:
   //   kiểu-dữ-liệu tên-biến1, tên-biến2, ...;
   int a;  // Khai báo một biến i
   int b, c, d; // Khai báo nhiều biến cùng kiểu
 
-  // Một số khai báo biến và khởi tạo giá trị đơn giản theo định dạng
+  // Một số khai báo biến đơn giản, và đồng thời khởi tạo giá trị,
+  // theo định dạng:
   //   kiểu-dữ-liệu tên-biến1 = hằng1, tên-biến2 = hằng 2, ...;
   short sh1 = -111, sh2 = 222;
   int i1 = -111111, i2 = 221222;
@@ -37,8 +39,8 @@ int main() {
   // số nguyên và ký tự
   char c1 = 100,
        c2 = 'A';
-  unsigned uc1 = 230,
-           uc2 = 'B';
+  unsigned char uc1 = 230,
+                uc2 = 'B';
 
   return 0;
 }
