@@ -5,7 +5,7 @@
 #include <stdio.h>
 int main() {
   {
-    long x = 2337408889848875842L;
+    long x = 1313360706L;
     printf("%p x = %ld\n", &x, x);
   }
   char c;
