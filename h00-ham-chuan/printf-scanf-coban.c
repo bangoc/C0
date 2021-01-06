@@ -3,8 +3,7 @@
 
   Tệp tiêu đề: stdio.h
   Nguyên mẫu:
-    int sprintf (char *__restrict __s,
-                 const char *__restrict __format, ...);
+    int printf (const char *__restrict __format, ...);
     int scanf (const char *__restrict __format, ...);
 
   Một số trường hợp nhập & xuất cơ bản.
