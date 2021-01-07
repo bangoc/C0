@@ -6,6 +6,8 @@
     int puts (const char *__s);
 
   * Lưu ý: gets bắt đầu bị lược bỏ khỏi thư viện tiêu chuẩn từ C11
+
+  Xem thêm: fgets-stdin.c
 */
 #include <stdio.h>
 
