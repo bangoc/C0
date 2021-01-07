@@ -27,14 +27,14 @@ int main() {
   // fscanf và scanf). Nhưng lô-gic hoạt động khác nhau.
   //
   // Cụ thể: gets xóa ký tự xuống dòng khỏi bộ nhớ đệm nhập nhưng
-  // không đưa vào chuỗi kết quả nhập.
+  //         không đưa vào chuỗi kết quả nhập.
   //         fgets xóa ký tự xuống dòng khỏi bộ nhớ đệm nhập, và có
-  // đưa vào kết quả nhập.
+  //         đưa vào chuỗi kết quả nhập.
   //
 
   printf("s = %s", s);  // Có xuống dòng
   // gets(s);
-  // printf("s = %s", s);  // Không xuong dòng
+  // printf("s = %s", s);  // Không xuống dòng
 
   // Vậy nên sử dụng fgets hay gets?
   //
@@ -47,10 +47,13 @@ int main() {
   // là quá khó).
   //
   // Nhưng nếu xét từ góc độ chuyên nghiệp, thì fgets được coi là hàm
-  // có thiết kế tốt hơn: 1) An toàn hơn: Vì có giới hạn kích thước
-  // dữ liệu; 2) Đa chức năng hơn: Khái quát hóa được khái niệm
-  // luồng nhập (sử dụng 1 hàm để đọc từ bàn phím và từ tệp, v.v...).
-  // Các xử lý như xóa dấu xuống dòng khá đơn giản.
+  // có thiết kế tốt hơn: 1) An toàn hơn: Vì có giới hạn số lượng ký
+  // tự nhập nên có thể tránh được lỗi làm tràn mảng đầu ra trong
+  // những trường hợp không biết trước số lượng ký tự trên một dòng;
+  // 2) Đa chức năng hơn: Khái quát hóa được khái niệm luồng nhập
+  // (sử dụng 1 hàm để đọc dữ liệu từ nhiều nguồn khác nhau: Bàn
+  // phím, tệp, v.v...). Các xử lý xóa dấu xuống dòng cũng tương đối
+  // đơn giản.
   //
   // Một số điểm cần lưu ý:
   //   1) Dấu xuống dòng: nếu sử dụng fgets cho những bài toán không
