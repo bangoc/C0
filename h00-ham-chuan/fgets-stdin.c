@@ -15,9 +15,13 @@ int main() {
   // Đọc một dòng bao gồm cả dấu xuống dòng
   fgets(s, N, stdin);
   // Giải thích:
-  //   Nếu thao tác nhập của bạn là abc ⏎ (Enter)
-  //   thì chuỗi s có thể là
-  //         "abc\n\0" (có bao gồm ký tự xuống dòng)
+  //   Nếu thao tác nhập của bạn là a b c⏎ (Enter)
+  //   thì chuỗi s có thể (vì còn phụ thuộc môi trường) là:
+  //         "a b c\n\0" (có bao gồm ký tự xuống dòng)
+  // So sánh với gets:
+  //   Nếu sử dụng gets(s); và thực hiện cùng thao tác nhập
+  //   Thì chuỗi s là:
+  //         "a b c\0" (không bao gồm ký tự xuống dòng)
   //
   // Các tham số:
   //   stdin - là luồng nhập tiêu chuẩn, thường được mặc đình là
@@ -64,9 +68,10 @@ int main() {
   //   1) Dấu xuống dòng: nếu sử dụng fgets cho những bài toán không
   //      quan tâm đến dấu xuống dòng thì cần phải lưu ý đến các dấu
   //      xuống dòng trong các xử lý, hoặc viết thêm mã nguồn để xóa
-  //      dấu xuống dòng. Ký hiệu xuống dòng trong các hệ thống khác //      nhau được biểu diễn khác nhau. Điển hình là trong môi
-  //      trường Unix sử dụng 1 ký tự (LF) \n, trong môi trường
-  //      Windows sử dụng hai ký tự (CR và LF) \r\n.
+  //      dấu xuống dòng. Có nhiều cách biểu diễn ký hiệu xuống dòng
+  //      trong các môi trường khác nhau. Điển hình là:
+  //        Môi trường Unix sử dụng 1 ký tự (LF) \n;
+  //        Môi trường Windows sử dụng hai ký tự (CR và LF) \r\n.
   //   2) gets - Bị xóa khỏi thư viện tiêu chuẩn của C từ phiên bản
   //      C11.
 
