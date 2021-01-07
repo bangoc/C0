@@ -15,6 +15,11 @@ int main() {
   // Đọc một dòng bao gồm cả dấu xuống dòng
   fgets(s, N, stdin);
   // Giải thích:
+  //   Nếu thao tác nhập của bạn là abc ⏎ (Enter)
+  //   thì chuỗi s có thể là
+  //         "abc\n\0" (có bao gồm ký tự xuống dòng)
+  //
+  // Các tham số:
   //   stdin - là luồng nhập tiêu chuẩn, thường được mặc đình là
   //           nhập từ bàn phím.
   //   s     - lưu kết quả nhập

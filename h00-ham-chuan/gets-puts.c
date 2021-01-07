@@ -7,6 +7,7 @@
 
   * Lưu ý: gets bắt đầu bị lược bỏ khỏi thư viện tiêu chuẩn từ C11
 
+  [Nếu đã học về nhập xuất với tệp thì]
   Xem thêm: fgets-stdin.c
 */
 #include <stdio.h>
@@ -16,6 +17,9 @@ int main() {
 
   // Đọc một dòng cho tới dấu xuống dòng, bỏ qua dấu xuống dòng
   gets(s);
+  // Giải thích:
+  //   Nếu thao tác nhập của bạn là abc ⏎ (Enter)
+  //   thì chuỗi s là "abc\0" (không bao gồm ký tự xuống dòng)
 
   // Xuất chuỗi s và thêm dấu xuống dòng
   puts(s);
