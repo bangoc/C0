@@ -2,9 +2,17 @@
   @bangoc: 2021
   Tệp tiêu đề: stdio.h
   Nguyên mẫu:
-    char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream);
+    char *fgets (char *__restrict __s, int __n,
+                    FILE *__restrict __stream);
 
+  [Nếu cần một hàm đơn giản để nhập nguyên một dòng thì]
   Xem thêm: gets-puts.c
+
+  Kiến thức cơ bản về ký tự:
+  \n là ký tự xuống dòng, tên bằng chữ là LF, mã ASCII là 10
+  \r là ký tự lùi về đầu dòng, tên bằng chữ là CR, mã ASCII là 13
+  Mô phỏng các thao tác của máy đánh chữ ngày xưa khi chuyển sang
+  dòng mới.
 */
 
 #include <stdio.h>
@@ -12,19 +20,27 @@
 int main() {
   char s[N];
 
-  // Đọc một dòng bao gồm cả dấu xuống dòng
+  // Đọc một dòng cho tới hết ký tự xuống dòng
+  // và đưa cả ký tự xuống dòng vào s.
   fgets(s, N, stdin);
   // Giải thích:
-  //   Nếu thao tác nhập của bạn là a b c⏎ (Enter)
-  //   thì chuỗi s có thể (vì còn phụ thuộc môi trường) là:
+  //   Nếu thao tác nhập của bạn là a b c⏎
+  //   thì chuỗi s là:
   //         "a b c\n\0" (có bao gồm ký tự xuống dòng)
   // So sánh với gets:
   //   Nếu sử dụng gets(s); và thực hiện cùng thao tác nhập
   //   Thì chuỗi s là:
   //         "a b c\0" (không bao gồm ký tự xuống dòng)
   //
+  // Nếu stdin được điều hướng từ một tệp văn bản với định dạng xuống
+  // dòng theo phong cách Windows gồm 2 ký tự CR và LF thì kết quả
+  // nhập có thể là
+  //   fgets(s, N, stdin);  // => s = "a b c\r\n\0"
+  //   gets(s);  // => s = "a b c\r\0"
+  // => Chỉ khác biệt ở ký tự xuống dòng '\n'
+  //
   // Các tham số:
-  //   stdin - là luồng nhập tiêu chuẩn, thường được mặc đình là
+  //   stdin - là luồng nhập tiêu chuẩn, thường được mặc định là
   //           nhập từ bàn phím.
   //   s     - lưu kết quả nhập
   //   N     - giới hạn, đọc không quá N-1 ký tự, sau đó thêm ký tự
@@ -68,8 +84,8 @@ int main() {
   //   1) Dấu xuống dòng: nếu sử dụng fgets cho những bài toán không
   //      quan tâm đến dấu xuống dòng thì cần phải lưu ý đến các dấu
   //      xuống dòng trong các xử lý, hoặc viết thêm mã nguồn để xóa
-  //      dấu xuống dòng. Có nhiều cách biểu diễn ký hiệu xuống dòng
-  //      trong các môi trường khác nhau. Điển hình là:
+  //      dấu xuống dòng. Có nhiều cách biểu diễn dấu hiệu kết thúc
+  //      dòng trong các môi trường khác nhau. Điển hình là:
   //        Môi trường Unix sử dụng 1 ký tự (LF) \n;
   //        Môi trường Windows sử dụng hai ký tự (CR và LF) \r\n.
   //   2) gets - Bị xóa khỏi thư viện tiêu chuẩn của C từ phiên bản
