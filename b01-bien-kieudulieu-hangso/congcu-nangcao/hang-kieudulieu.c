@@ -84,7 +84,7 @@ int main() {
   PRINT_TYPENAME('\0');
 
   if ('\0' == 0) {
-    printf("Mã số của \\0 bằng 0\n");
+    printf("Mã số của '\\0' bằng 0\n");
   } else {
     printf("Có gì đó sai.\n");
   }
