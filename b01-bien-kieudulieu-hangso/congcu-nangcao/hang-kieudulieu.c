@@ -81,7 +81,13 @@ int main() {
   PRINT_TYPENAME('\x5F');
   PRINT_TYPENAME('\012');
   PRINT_TYPENAME('\n');
+  PRINT_TYPENAME('\0');
 
+  if ('\0' == 0) {
+    printf("Mã số của \\0 bằng 0\n");
+  } else {
+    printf("Có gì đó sai.\n");
+  }
   PRINT_TYPENAME(((char)'A'));
   PRINT_TYPENAME(((unsigned char)'A'));
   return 0;
