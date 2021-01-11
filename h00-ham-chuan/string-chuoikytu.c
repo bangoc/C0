@@ -4,11 +4,18 @@
   Chuỗi ký tự == Xâu ký tự, các thuật ngữ này là tương đương.
 
   Trong C chuỗi ký tự được biểu diễn như mảng ký tự một chiều với
-  quy ước ký tự có mã số bằng 0, ('\0') là ký tự kết thúc chuỗi.
-  Yêu cầu: Kích thước của mảng phải >= Độ dài của chuỗi + 1.
+  quy ước ký tự có mã số bằng 0, ('\0') là ký tự kết thúc chuỗi. Với
+  quy ước này thì trong chuỗi ký tự không được có ký tự có mã số
+  bằng 0, và các hàm xử lý chuỗi thường mặc định bỏ qua phần dữ liệu
+  đứng sau ký tự kết thúc chuỗi đầu tiên.
+  !Yêu cầu: Kích thước của mảng phải >= Độ dài của chuỗi + 1.
     +1 phần tử để lưu ký tự kết thúc chuỗi.
 
-  C không hỗ trợ các toán tử để thực hiện các xử lý bậc cao với chuỗi ký tự, thay vào các xử lý được thực hiện bằng hàm. Ví dụ không thể sử dụng toán tử + để ghép nối hai chuỗi, hay các toán tử thứ tự như <, >, == để so sánh hai chuỗi.
+  C không hỗ trợ các toán tử để thực hiện các xử lý bậc cao với chuỗi
+  ký tự, thay vào các xử lý được thực hiện bằng hàm. Ví dụ không thể
+  sử dụng toán tử + để ghép nối hai chuỗi, hay các toán tử thứ tự như
+  <, >, == để so sánh hai chuỗi.
+
   * Như chúng ta có thể thấy phép + hai số nguyên có ý nghĩa toán học
   rất rõ ràng, nhưng với hai chuỗi thì không hiển nhiên như vậy.
   Tương tự với các toán tử thứ tự: Cũng có thể có nhiều cách định
