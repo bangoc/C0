@@ -1,6 +1,8 @@
 /*
   @bangoc 2021
 
+  Chuỗi ký tự == Xâu ký tự, các thuật ngữ này là tương đương.
+
   Trong C chuỗi ký tự được biểu diễn như mảng ký tự một chiều với
   quy ước ký tự có mã số bằng 0, ('\0') là ký tự kết thúc chuỗi.
   Yêu cầu: Kích thước của mảng phải >= Độ dài của chuỗi + 1.
