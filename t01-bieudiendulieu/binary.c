@@ -2,72 +2,69 @@
 Output binary representation of a value
 @bangoc 2021
 */
-#include <stdio.h>
-#include <string.h>
+#include "bin_helper.h"
 
-typedef enum {
-  BIG_EDIAN,
-  LITTLE_EDIAN
-} edian_type;
 
-edian_type edian;
+typedef char *char_ptr;
+typedef char_ptr (*get_binary_t)();
+#define MAX_IMPL 1000
+static char* impl_names[MAX_IMPL];
+static get_binary_t impl_handlers[MAX_IMPL];
+static int impl_count = 0;
 
-char *get_binary(void *p) {
-  static char buffer[9] = {'\0'};
-  unsigned char number = *((unsigned char *)p);
-  for (int i = 0; i < 8; ++i) {
-    buffer[7 - i] = (number % 2) + '0';
-    number /= 2;
-  }
-  return buffer;
+static void register_handler(char *name, get_binary_t func) {
+  impl_names[impl_count] = name;
+  impl_handlers[impl_count] = func;
+  ++impl_count;
 }
 
-void print_byte(void *p) {
-  printf("%s ", get_binary(p));
+#define register_impl(type) register_handler(#type, get_ ##type##_binary)
+
+static get_binary_t get_handler(const char *name) {
+  for (int i = 0; i < impl_count; ++i) {
+    if (strcmp(impl_names[i], name) == 0) {
+      return impl_handlers[i];
+    }
+  }
+  return NULL;
 }
 
 #define IMPL(type) \
-  void print_##type(char *inp) { \
+static char *get_ ##type##_binary(const char *inp) { \
+  const edian_type edian = get_edian(); \
   long double tmp; \
   sscanf(inp, "%Lf", &tmp); \
   type value = (type)tmp; \
-  char *p = (char*)&value; \
-  if (edian == LITTLE_EDIAN) { \
-    for (int i = sizeof(type) - 1; i >= 0; --i) { \
-      print_byte(p + i); \
-    } \
-  } else if (edian == BIG_EDIAN) { \
-    for (int i = 0; i < sizeof(type); ++i) { \
-      print_byte(p + i); \
-    } \
-  } \
-  printf("\n"); \
+  void *p = (void*)&value; \
+  return get_object_binary(p, sizeof(type), edian); \
 }
 
 IMPL(char)
 IMPL(short)
 IMPL(int)
 IMPL(float)
+IMPL(double)
+
+void register_all() {
+  register_impl(char);
+  register_impl(short);
+  register_impl(int);
+  register_impl(float);
+  register_impl(double);
+}
 
 int main(int argc, char *argv[]) {
   if (argc < 3) {
-    printf("Usage: ./binary type value\n"
+    printf("Usage: ./binary type numeric_value\n"
            "Supported types are char, short, int, float\n");
-    return 0;
+    return 1;
   }
-  int v = 1;
-  char *p = (char*)&v;
-  edian = *p == 1? LITTLE_EDIAN: BIG_EDIAN;
-  if (strcmp(argv[1], "char") == 0) {
-    print_char(argv[2]);
-  } else if (strcmp(argv[1], "short") == 0) {
-    print_short(argv[2]);
-  } else if (strcmp(argv[1], "int") == 0) {
-    print_int(argv[2]);
-  } else if (strcmp(argv[1], "float") == 0) {
-    print_float(argv[2]);
+  register_all();
+  get_binary_t handler = get_handler(argv[1]);
+  if (handler) {
+    printf("%s\n", handler(argv[2]));
   } else {
-    printf("Unknown argument.\n");
+    printf("Unknown type.\n");
   }
   return 0;
 }
