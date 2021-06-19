@@ -10,8 +10,8 @@ Gợi ý: Tham khảo upc.c
 
 4. Viết chương trình đọc một số nguyên được nhập bởi người dùng và hiển thị nó ở hệ cơ số 8:
 Ví dụ:
-Nhập một số trong khoảng giữa 0 và 32768: 1953
-Trong hệ cơ số 8, số bạn đã nhập là: 03641
+Nhập một số trong khoảng giữa 0 và 32768: 1984
+Trong hệ cơ số 8, số bạn đã nhập là: 03700
 Kết quả đầu ra phải có đủ 5 chữ số dù có thể biểu diễn với ít chữ số hơn.
 Gợi ý: Để chuyển đổi số sang HCS 8, đầu tiên chia nó cho 8 - phần dư trong phép chia là chữ số cuối cùng trong HCS 8, sau đó tiếp tục lặp lại thao tác này với phần nguyên trong phép chia ở bước trước để lấy chữ số tiếp theo cho tới khi phần nguyên trong phép chia bằng 0. (printf có khả năng hiển thị số ở HCS 8 vì vậy chúng ta hoàn toàn có thể viết chương trình này theo cách đơn giản hơn.).
 
