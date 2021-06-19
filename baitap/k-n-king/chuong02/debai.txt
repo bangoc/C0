@@ -22,7 +22,7 @@ Gợi ý: C không có toán tử tính lũy thừa, bạn có thể nhân x v�
 
 6. Điều chỉnh chương trình trong bài 5 sao cho giá trị của đa thức được tính bằng công thức sau:
 ((((3x+2)x - 5)x - 1)x + 7)x - 6
-Ghi chú: Chương trình sau khi điều chỉnh thực hiện ít phép nhân hơn. Kỹ thuật này để tính giá trị đa thức được biết đến là luật Horner.
+Ghi chú: Chương trình sau khi điều chỉnh thực hiện ít phép nhân hơn. Kỹ thuật này để tính giá trị đa thức được biết đến là phương pháp Horner.
 
 7. Viết chương trình hỏi người dùng nhập vào số tiền tính bằng ngàn đồng và sau đó hiển thị cách thanh toán số tiền đó với tổng số tờ tiền với các mệnh giá 20000, 10000, 5000, 2000, 1000 nhỏ nhất:
 Nhập số tiền (x 1000 VNĐ): 30
