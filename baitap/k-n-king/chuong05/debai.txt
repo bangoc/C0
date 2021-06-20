@@ -8,12 +8,12 @@ Gợi ý: Sử dụng câu lệnh if để kiểm tra khoảng giá trị chứa
 2. Viết chương trình hỏi người dùng nhập thời gian theo 24 giờ, sau đó hiển thị thời gian tương đương theo 12 giờ.
 Ví dụ:
 Nhập thời gian theo 24 giờ: 21:11
-Thời  gian tương đương là: 9:11 PM
+Thời gian tương đương theo 12 giờ là: 9:11 PM
 Chú ý không hiển thị 12:00 là 0:00.
 
 3. Điều chỉnh chương trình broker.c với 2 thay đổi như sau:
 a) Hỏi người dùng nhập vào số lượng cổ phiếu và giá một cổ phiếu thay vì giá trị của giao dịch.
-b) Thêm các câu lệnh tính phí thu bởi một dịch vụ môi giới khác (0.33 + 0.0003$/cổ phiếu đối với giao dịch ít hơn 2000 cổ phiếu: 0.33 + 0.0002/cổ phiếu đối với giao dịch từ 2000 cổ phiếu trở lên). Hiển thị khoản phí phải trả nếu sử dụng dịch vụ môi giới ban đầu và khoản phí phải trả nếu sử dụng dịch vụ môi giới này.
+b) Thêm các câu lệnh tính phí thu bởi một dịch vụ môi giới khác (0.33 + 0.0003 triệu/cổ phiếu đối với giao dịch ít hơn 2000 cổ phiếu: 0.33 + 0.0002 triệu/cổ phiếu đối với giao dịch từ 2000 cổ phiếu trở lên). Hiển thị khoản phí phải trả nếu sử dụng dịch vụ môi giới ban đầu và khoản phí phải trả nếu sử dụng dịch vụ môi giới này.
 
 4. Đây là phiên bản đơn giản của thang Beaufort, được sử dụng để đánh giá sức gió:
 Tốc độ (kn)    Mô tả
@@ -35,7 +35,7 @@ Thu nhập         Thuế phải nộp
 trên 70 triệu      2.3 triệu + 6% khoản thu trên 70.0 triệu
 Viết chương trình hỏi người dùng nhập khoản thu chịu thuế, sau đó tính và hiển thị khoản thuế phải nộp.
 
-6. Điều chỉnh chương trình upc.c có trong chương 4 sao cho nó kiểm tra tính hợp lệ của mã UPC. Sau khi người dùng nhập một mã UPC (đủ 12 chữ số), chương trình hiển thị Hợp lệ hoặc không hợp lệ (sử dụng 11 chữ số đầu tiên để tính chữ số kiểm tra và so sánh với chữ số cuối cùng).
+6. Điều chỉnh chương trình upc.c có trong chương 4 sao cho nó kiểm tra tính hợp lệ của mã UPC. Sau khi người dùng nhập một mã UPC (đủ 12 chữ số), chương trình hiển thị Hợp lệ hoặc Không hợp lệ (sử dụng 11 chữ số đầu tiên để tính chữ số kiểm tra và so sánh với chữ số cuối cùng).
 
 7. Viết chương trình tìm số lớn nhất và nhỏ nhất trong bốn số nguyên được nhập vào.
 Ví dụ:
