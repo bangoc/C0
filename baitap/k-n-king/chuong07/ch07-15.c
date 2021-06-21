@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <stdio.h>
 #include <math.h>
 
@@ -12,6 +13,7 @@ int main() {
   printf("Nhập lựa chọn của bạn (1-7): ");
   int choice;
   scanf("%d", &choice);
+  int flag = 1;
   if (choice == 1) {
     short n, gt = 1;
     printf("Đang sử dụng kiểu short:\n");
@@ -20,6 +22,13 @@ int main() {
     for (short i = 1; i <= n; ++i) {
       gt *= i;
       printf("%hd! = %hd\n", i, gt);
+      if (gt == 0) {
+        break;
+      }
+      if (flag && SHRT_MAX/gt < i + 1) {
+        flag = 0;
+        printf("----------Tràn số----------\n");
+      }
     }
   } else if (choice == 2) {
     int n, gt = 1;
@@ -29,6 +38,13 @@ int main() {
     for (int i = 1; i <= n; ++i) {
       gt *= i;
       printf("%d! = %d\n", i, gt);
+      if (gt == 0) {
+        break;
+      }
+      if (flag && INT_MAX/gt < i + 1) {
+        flag = 0;
+        printf("----------Tràn số----------\n");
+      }
     }
   } else if (choice == 3) {
     long n, gt = 1;
@@ -38,6 +54,13 @@ int main() {
     for (long i = 1; i <= n; ++i) {
       gt *= i;
       printf("%ld! = %ld\n", i, gt);
+      if (gt == 0) {
+        break;
+      }
+      if (flag && LONG_MAX/gt < i + 1) {
+        flag = 0;
+        printf("----------Tràn số----------\n");
+      }
     }
   } else if (choice == 4) {
     long long n, gt = 1;
@@ -47,6 +70,13 @@ int main() {
     for (long long i = 1; i <= n; ++i) {
       gt *= i;
       printf("%lld! = %lld\n", i, gt);
+      if (gt == 0) {
+        break;
+      }
+      if (flag && LLONG_MAX/gt < i + 1) {
+        flag = 0;
+        printf("----------Tràn số----------\n");
+      }
     }
   } else if (choice == 5) {
     float n, gt = 1;
