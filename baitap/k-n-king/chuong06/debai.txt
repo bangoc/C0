@@ -8,7 +8,7 @@ Nhập một số: 100.62
 Nhập một số: 75.2295
 Nhập một số: 0
 
-Số lớn nhất đã nhập vào là 100.62
+Số dương lớn nhất đã nhập vào là 100.62
 Lưu ý: Các số không bắt buộc phải là những số nguyên.
 
 2. Viết chương trình hỏi người dùng nhập hai số nguyên, sau đó tính và hiển thị ước số chung lớn nhất của chúng (ƯSCLN).
@@ -65,10 +65,10 @@ Gợi ý: Sử dụng một vòng lặp để duyệt các giá trị từ 1 t�
 
 Ví dụ:
 Nhập một ngày (dd/mm/yy): 6/3/08
-Nhập một ngày (dd/mm/yy): 5/17/07
+Nhập một ngày (dd/mm/yy): 17/5/07
 Nhập một ngày (dd/mm/yy): 6/3/07
 Nhập một ngày (dd/mm/yy): 0/0/0
-Ngày 17/5/07 là ngày sớm nhất.
+Ngày 6/3/07 là ngày sớm nhất.
 
 11. Giá trị của hằng số toán học e có thể được biểu diễn như một dãy vô hạn:
 e = 1 + 1/1! + 1/2! + 1/3! + ....
@@ -76,4 +76,4 @@ Hãy viết chương trình ước lượng e bằng cách tính biểu thức
 1 + 1/1! + 1/2! + 1/3! + ... + 1/n!
 trong đó n là số nguyên được người dùng nhập vào.
 
-12. Điều chỉnh chương trình trong bài 11 sao cho nó tiếp tục cộng thêm các thành phần mới cho tới khi thành phần hiện tại nhỏ hơn eps (ε), trong đó eps là một số (thực) nhỏ được nhập bởi người dùng.
+12. Điều chỉnh chương trình trong bài 11 sao cho nó tiếp tục cộng thêm các thành phần mới cho tới khi thành phần hiện tại nhỏ hơn eps (ε), trong đó eps là một số (thực) rất nhỏ được nhập bởi người dùng.
