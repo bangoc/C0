@@ -1,97 +1,88 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-  {
-    printf("a) Đối với kiểu short: \n");
-    short n = 1, gt = 1;
-    for (;;) {
-      short gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%hd! = %hd\n%hd! = %hd\n%hd! = %hd\n", n - 1, gt/n, n, gt, n + 1, gt1);
-        break;
-      }
-      gt = gt1;
-      ++n;
+  printf("1 = sử dụng kiểu short.\n"
+         "2 = sử dụng kiểu int.\n"
+         "3 = sử dụng kiểu long.\n"
+         "4 = sử dụng kiểu long long.\n"
+         "5 = sử dụng kiểu float.\n"
+         "6 = sử dụng kiểu double.\n"
+         "7 = sử dụng kiểu long double.\n");
+  printf("Nhập lựa chọn của bạn (1-7): ");
+  int choice;
+  scanf("%d", &choice);
+  if (choice == 1) {
+    short n, gt = 1;
+    printf("Đang sử dụng kiểu short:\n");
+    printf("nhập n = ");
+    scanf("%hd", &n);
+    for (short i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%hd! = %hd\n", i, gt);
     }
-  }
-  {
-    printf("b) Đối với kiểu int: \n");
-    int n = 1, gt = 1;
-    for (;;) {
-      int gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%d! = %d\n%d! = %d\n%d! = %d\n", n - 1, gt/n, n, gt, n + 1, gt1);
-        break;
-      }
-      gt = gt1;
-      ++n;
+  } else if (choice == 2) {
+    int n, gt = 1;
+    printf("Đang sử dụng kiểu int:\n");
+    printf("nhập n = ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%d! = %d\n", i, gt);
     }
-  }
-  {
-    printf("c) Đối với kiểu long: \n");
-    long n = 1, gt = 1;
-    for (;;) {
-      long gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%ld! = %ld\n%ld! = %ld\n%ld! = %ld\n", n - 1, gt/n, n, gt, n + 1, gt1);
-        break;
-      }
-      gt = gt1;
-      ++n;
+  } else if (choice == 3) {
+    long n, gt = 1;
+    printf("Đang sử dụng kiểu long:\n");
+    printf("nhập n = ");
+    scanf("%ld", &n);
+    for (long i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%ld! = %ld\n", i, gt);
     }
-  }
-  {
-    printf("d) Đối với kiểu long long: \n");
-    long long n = 1, gt = 1;
-    for (;;) {
-      long long gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%lld! = %lld\n%lld! = %lld\n%lld! = %lld\n", n - 1, gt/n, n, gt, n + 1, gt1);
-        break;
-      }
-      gt = gt1;
-      ++n;
+  } else if (choice == 4) {
+    long long n, gt = 1;
+    printf("Đang sử dụng kiểu long long:\n");
+    printf("nhập n = ");
+    scanf("%lld", &n);
+    for (long long i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%lld! = %lld\n", i, gt);
     }
-  }
-  {
-    printf("e) Đối với kiểu float: \n");
-    float n = 1, gt = 1;
-    for (;;) {
-      float gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%f! = %f\n%f! = %f\n%f! = %f\n", n - 1, gt/n, n, gt, n + 1, gt1);
+  } else if (choice == 5) {
+    float n, gt = 1;
+    printf("Đang sử dụng kiểu float:\n");
+    printf("nhập n = ");
+    scanf("%f", &n);
+    for (float i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%.0f! = %e\n", i, gt);
+      if (isinf(gt)) {
         break;
       }
-      gt = gt1;
-      ++n;
     }
-  }
-
-  {
-    printf("f) Đối với kiểu double: \n");
-    double n = 1, gt = 1;
-    for (;;) {
-      double gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%lf! = %lf\n%lf! = %lf\n%lf! = %lf\n", n - 1, gt/n, n, gt, n + 1, gt1);
+  } else if (choice == 6) {
+    double n, gt = 1;
+    printf("Đang sử dụng kiểu double:\n");
+    printf("nhập n = ");
+    scanf("%lf", &n);
+    for (double i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%.0lf! = %le\n", i, gt);
+      if (isinf(gt)) {
         break;
       }
-      gt = gt1;
-      ++n;
     }
-  }
-
-  {
-    printf("g) Đối với kiểu long double: \n");
-    long double n = 1, gt = 1;
-    for (;;) {
-      long double gt1 = gt * (n + 1);
-      if ((gt1 / gt) != (n + 1)) {
-        printf("%Lf! = %Lf\n%Lf! = %Lf\n%Lf! = %Lf\n", n - 1, gt/n, n, gt, n + 1, gt1);
+  } else if (choice == 7) {
+    long double n, gt = 1;
+    printf("Đang sử dụng kiểu long double:\n");
+    printf("nhập n = ");
+    scanf("%Lf", &n);
+    for (long double i = 1; i <= n; ++i) {
+      gt *= i;
+      printf("%.0Lf! = %Le\n", i, gt);
+      if (isinf(gt)) {
         break;
       }
-      gt = gt1;
-      ++n;
     }
   }
   return 0;
