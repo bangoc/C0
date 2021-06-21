@@ -33,7 +33,7 @@ int main() {
   } else if (value < 500) {
     commission = 1 + 0.0022 * value;
   } else {
-    commission = 1.55 * 0.0011 * value;
+    commission = 1.55 + 0.0011 * value;
   }
   if (commission < 0.39) {
     commission = 0.39;
