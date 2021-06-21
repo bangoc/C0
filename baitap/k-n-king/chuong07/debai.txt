@@ -11,7 +11,7 @@ sau khi hiển thị 24 giá trị liên tiếp. Sau khi hiển thị thông bá
 4. Viết chương trình chuyển đổi số điện thoại từ định dạng chữ cái sang định dạng chữ số:
 Ví dụ:
 Nhập số điện thoại: CALLATT
-Kết quả chuyển đổi: 2255288
+2255288
 Chuyển đổi từng ký tự theo bảng tham chiếu sau: 2 = ABC, 3 = DEF, 4 = GHI, 5 = JKL, 6 = MNO, 7 = PRS, 8 = TUV, 9 = WXY. Nếu số điện thoại ban đầu chứa các ký tự không phải là chữ cái trong bảng tham chiếu (ví dụ chữ số hoặc các dấu), thì giữ nguyên không thay đổi các ký tự đó:
 Ví dụ:
 Nhập số điện thoại: 1-800-COL-LECT
@@ -46,6 +46,7 @@ bạn có thể đặt giả thuyết rằng đầu vào thuộc một trong cá
 Ví dụ:
 Nhập một thời gian 12 giờ: 9:11 PM
 Thời gian tương đương ở dạng 24 giờ: 21:11
+
 Định dạng đầu vào tương tự như trong bài 8.
 
 10. Viết chương trình đếm số lượng nguyên âm (a, e, i, o và u) trong một câu tiếng anh:
@@ -64,7 +65,7 @@ Nhập một biểu thức: 1+2.5*3
 Giá trị biểu thức: 10.5
 Các toán hạng trong biểu thức là các số thực; các toán tử bao gồm +,-,* và /. Biểu thức được thực hiện từ trái qua phải (không có thứ tự ưu tiên của toán tử).
 
-13. Viết chương trình tính giá trị trung bình của độ dài từ trong một câu:
+13. Viết chương trình tính trung bình độ dài từ trong một câu:
 Ví dụ:
 Nhập một câu: It was deja vu all over again.
 Trung bình độ dài từ: 3.4
