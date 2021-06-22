@@ -1,5 +1,5 @@
 /*
-  Chương trình hiển thị giá trị của 1 triệu tiền đầu tư với lãi suất khác nhau qua các năm. Người dùng nhập lãi suất và số năm đầu tư. Chương trình hiển thị bảng giá trị tiền đầu tư hàng năm bắt đầu với lãi suất ban đầu và 4 mức lãi suất tiếp theo cao hơn. Giả sử lợi nhuận được gộp 1 lần 1 năm. Một phiên làm việc của chương tình có thể như sau:
+  Chương trình hiển thị giá trị của 1 triệu tiền đầu tư với lãi suất khác nhau qua các năm. Người dùng nhập lãi suất và số năm đầu tư. Chương trình hiển thị bảng giá trị tiền đầu tư hàng năm bắt đầu với lãi suất ban đầu và 4 mức lãi suất tiếp theo cao hơn. Giả sử lợi nhuận được gộp 1 lần 1 tháng (điều chỉnh theo đề bài). Một phiên làm việc của chương tình có thể như sau:
 
   Nhập lãi suất: 6
   Nhập số năm: 5
@@ -33,7 +33,11 @@ int main() {
   for (year = 1; year <= num_years; ++year) {
     printf("%5d   ", year);
     for (i = 0; i < NUM_RATES; ++i) {
-      value[i] += (low_rate + i) / 100.0 * value[i];
+      double rate = low_rate + i;
+      rate /= 12;  // Gộp lãi phát sinh theo từng tháng
+      for (int t = 0; t < 12; ++t) {
+        value[i] += rate / 100.0 * value[i];
+      }
       printf("%8.3f", value[i]);
     }
     printf("\n");

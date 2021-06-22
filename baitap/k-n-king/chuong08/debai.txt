@@ -37,7 +37,7 @@ Các tổng theo cột: 34 37 37 32 21
 
 8. Điều chỉnh chương trình bài 7 sao cho nó hỏi nhập điểm 5 bài kiểm tra của 5 sinh viên, sau đó tính tổng điểm và điểm trung bình cho mỗi sinh viên, và điểm trung bình, điểm cao nhất, và điểm thấp nhất cho mỗi bài kiểm tra.
 
-9. Viết chương trình sinh một dấu vết "di chuyển ngẫu nhiên" trên ma trận 10x10. Ban đầu ma trận chỉ chứa ký tự '.'. Chương trình phải di chuyển từ một ô hiện tại sang ô liền kề theo một trong các hướng: lên, xuống, trái, phải. Các ô được ghé thăm được gán các chữ cái từ A tới Z, theo thứ tự ghé thăm. Đây là một ví dụ đầu ra:
+9. Viết chương trình sinh một dấu vết "di chuyển ngẫu nhiên" trên ma trận 10x10. Ban đầu ma trận chỉ chứa ký tự '.'. Bắt đầu từ vị trí (0, 0). Chương trình phải di chuyển từ một ô hiện tại sang ô liền kề theo một trong các hướng: lên, xuống, trái, phải. Các ô được ghé thăm được gán các chữ cái từ A tới Z, theo thứ tự ghé thăm. Đây là một ví dụ đầu ra:
 A   .   .   .   .   .   .   .   .   .
 B   C   D   .   .   .   .   .   .   .
 .   F   E   .   .   .   .   .   .   .
@@ -119,5 +119,6 @@ Nhập kích thước của ma trận kỳ ảo: 5
 4     6     13  20  22
 10    12    19  21  3
 11    18    25   2  9
+
 Gợi ý: Lưu ma trận kỳ ảo trong một mảng hai chiều. Bắt đầu với giá trị 1 ở giữa dòng đầu tiên. Đặt các số còn lại bằng cách đi lên 1 dòng (giảm chỉ số dòng) và qua phải 1 cột (tăng chỉ số cột), xoay vòng nếu vượt ra ngoài phạm vi mảng, ví dụ, thay vì lưu vào dòng -1 chúng ta cần lưu vào dòng n - 1, thay vì lưu vào cột n, chúng ta cần lưu vào cột 0. Nếu ô đích của mảng đã bị chiếm thì đặt số trực tiếp bên dưới ô đã lưu số trước.
 Nếu trình biên dịch có hỗ trợ mảng độ dài linh động, bạn có thể khai báo mảng kích thước n x n. Nếu không, bạn có thể khai báo mảng với kích thước cực đại là 99 x 99.
