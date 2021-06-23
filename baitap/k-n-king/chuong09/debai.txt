@@ -15,12 +15,12 @@ bool equal_array(int counts1[256], int counts2[256]);
 main sẽ gọi read_word 2 lần, mỗi lần đọc 1 từ do người dùng nhập vào. Hàm read_word sẽ sử dụng các ký tự trong từ được nhập vào để cập nhật mảng counts, như trong bài tập gốc. Sau đó main sẽ gọi hàm equal_array để kiểm tra xem tất cả các phần tử có cùng chỉ số trong hai mảng có bằng nhau hay không. Nếu đúng, thì 2 từ nhập vào là các hoán vị, hoặc nếu ngược lại thì các từ không phải là các hoán vị.
 
 5. Điều chỉnh chương trình bài 17 chương 8 sao cho nó bao gồm các hàm sau:
-void create_magic_square(int n, char magic_square[n][n]);
-void print_magic_square(int n, char magic_square[n][n]);
+void create_magic_square(int n, int magic_square[n][n]);
+void print_magic_square(int n, int magic_square[n][n]);
 Sau khi đọc số n, hàm main gọi create_magic_square, truyền cho nó một mảng n x n được khai báo trong hàm main. create_magic_square sẽ điền các giá trị 1, 2, ..., n^2 vào ma trận như trong bài tập gốc. Hàm main sau đó gọi print_magic_square để hiển thị mảng theo định dạng như trong bài tập gốc.
 Ghi chú: Nếu trình biên dịch không hỗ trợ mảng kích thước linh hoạt, thì có thể khai bảo kích thước mảng là 99 x 99 thay vì n x n, và sử dụng các nguyên mẫu hàm như sau:
-void create_magic_square(int n, char magic_square[99][99]);
-void print_magic_square(int n, char magic_square[99][99]);
+void create_magic_square(int n, int magic_square[99][99]);
+void print_magic_square(int n, int magic_square[99][99]);
 
 6. Viết hàm tính giá trị của đa thức sau:
 3x^5 + 2x^4 - 5x^3 - x^2 + 7x - 6
@@ -35,7 +35,7 @@ Chốt của bạn là 8
 Kết quả mở của bạn: 3
 Kết quả mở của bạn: 10
 Kết quả mở của bạn: 8
-Bạn thắng!
+Bạn đã thắng!
 
 Chơi lại? [y, n]: y
 
@@ -44,7 +44,7 @@ Chốt của bạn là 6
 Kết quả mở của bạn: 12
 Kết quả mở của bạn: 3
 Kết quả mở của bạn: 7
-Bạn thua!
+Bạn đã thua!
 
 Chơi lại? [y, n]: y
 
