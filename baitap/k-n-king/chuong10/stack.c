@@ -28,11 +28,10 @@ void push(int i) {
 }
 
 int pop() {
-  if (is_empty) {
+  if (is_empty()) {
     stack_underflow();
   } else {
-    int i = top;
     --top;
-    return contents[i];
+    return contents[top];
   }
 }

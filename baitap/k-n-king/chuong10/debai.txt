@@ -1,7 +1,7 @@
-1. Điều chỉnh ví dụ ngăn xếp (stack.c) sao cho nó lưu các ký tự thay vì các số nguyên. Sau đó thêm hàm main và hỏi người dùng nhập vào một dãy các dấu ngoặc tròn hoặc ngoặc nhọn, sau đó thông báo các cặp ngoặc đã được đặt đúng hoặc chưa:
+1. Điều chỉnh ví dụ ngăn xếp (stack.c) sao cho nó lưu các ký tự thay vì các số nguyên. Sau đó thêm hàm main và hỏi người dùng nhập vào một dãy các dấu ngoặc tròn hoặc ngoặc nhọn, sau đó thông báo các cặp ngoặc đã được đặt đúng hoặc chưa đúng:
 Ví dụ:
-Nhập các ngoặc tròn và ngoặc nhọn: ((){}{()})
-Các cặp ngoặc đã được đặt hợp lệ.
+Nhập dãy ngoặc (ngoặc tròn và ngoặc nhọn) lồng nhau: ((){}{()})
+Các cặp ngoặc được đặt đúng.
 
 Gợi ý: Khi đọc các ký tự, lưu dấu mở ngoặc vào ngăn xếp. Khi đọc được một dấu đóng ngoặc thì lấy một ký tự từ ngăn xếp và kiểm tra xem nó có khớp với dấu vừa đọc được hay không (nếu không thì chứng tỏ các ngoặc lồng nhau bị đặt sai) Khi chương trình đọc được dấu xuống dòng, kiểm tra xem ngăn xếp rỗng hay không: Nếu rỗng thì chứng tỏ các cặp ngoặc được đặt đúng. Nếu không rỗng (hoặc ngăn xếp bị tràn dưới), thì chứng tỏ các cặp ngoặc lồng nhau bị đặt sai. Nếu ngăn xếp bị tràn trên thì in ra thông báo Tràn bộ nhớ và kết thúc chương trình.
 
