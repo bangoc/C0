@@ -1,4 +1,13 @@
-/* Phân loại một số bộ sảnh trong bài Lơ khơ */
+/* Phân loại một số bộ 5-lá bài:                                        *
+ * Sảnh vua - Royal flush - Dãy đồng chất với Át là quân bài cao nhất  *
+ * Thùng phá sảnh - Straight flush - Dây đồng chất                     *
+ * Tứ quý - Four of a kind - Bốn quân đồng số                          *
+ * Cù lũ - Full house - Một bộ ba và một đôi                           *
+ * Đồng chất (thùng) - Flush - năm quân cùng mầu                       *
+ * Dây (sảnh) - Straight - Các số của năm quân tạo thành một dãy       *
+ * Bộ ba - Three of a kind - Ba quân bài cùng số                       *
+ * Đôi (1, 2) - Pair  - Hai lá bài đồng số                             *
+ * Bài cao - High card - không thuộc các trường hợp đã liệt kê         */
 #include <stdbool.h>  // C99
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +20,7 @@
 int num_in_rank[NUM_RANKS];
 int num_in_suit[NUM_SUITS];
 bool straight, flush, four, three;
-int pairs;  /* Có thể là 0, 1, hoặc 2 */
+int pairs;  /* Có thể nhận các giá trị 0, 1, hoặc 2 */
 
 /* Các nguyên mẫu */
 void read_cards(void);
@@ -33,7 +42,7 @@ int main() {
 /*******************************************************
  * read_cards: Đọc các quân bài vào các biến ngoại     *
  *             num_in_rank và num_in_suit; Kiểm tra    *
- *             các quân bài không hợp lệ và trùng lặp. *
+ *             tính hợp lệ và trùng lặp.               *
  *******************************************************/
 void read_cards() {
   bool card_exists[NUM_RANKS][NUM_SUITS];
@@ -55,7 +64,7 @@ void read_cards() {
     printf("Nhập một quân bài: ");
     rank_ch = getchar();
     switch(rank_ch) {
-      // Chương trình này có thể kết thúc an toàn ở bất kỳ chỗ nào
+      // An toàn để kết thúc chương trình
       case '0': exit(EXIT_SUCCESS);
       case '2': rank = 0; break;
       case '3': rank = 1; break;
@@ -99,7 +108,7 @@ void read_cards() {
 }
 
 /********************************************************************
- * analyze_hand: Xác định liệu bài có chứa dây, sảnh, tứ quý,       *
+ * analyze_hand: Xác định liệu bài có chứa dây, thùng, tứ quý,       *
  *               và/hoặc bộ ba; xác định số lượng cặp; lưu kết quả  *
  *               vào các biến ngoại flush, straight, four, three    *
  *               và pairs.                                          *
@@ -113,7 +122,7 @@ void analyze_hand() {
   three = false;
   pairs = 0;
 
-  /* Kiểm tra sảnh */
+  /* Kiểm tra thùng */
   for (suit = 0; suit < NUM_SUITS; ++suit) {
     if (num_in_suit[suit] == NUM_CARDS) {
       flush = true;
@@ -147,19 +156,19 @@ void analyze_hand() {
 }
 
 /************************************************************
- * print_result: In kết quả phân loại bài, dựa trên các     *
+ * print_result: In kết quả phân loại 5-lá, dựa trên các    *
  *               giá trị của các biến ngoài straight, flush *
  *               four, three, và các cặp.                   *
  ************************************************************/
 void print_result() {
   if (straight && flush) {
-    printf("Sảnh dây");
+    printf("Thùng phá sảnh");
   } else if (four) {
     printf("Tứ quý");
   } else if (three && pairs == 1) {
     printf("Cù lũ");
   } else if (flush) {
-    printf("Sảnh");
+    printf("Thùng");
   } else if (straight) {
     printf("Dây");
   } else if (three) {
