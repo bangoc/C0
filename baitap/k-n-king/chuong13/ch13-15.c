@@ -51,47 +51,65 @@ int pop() {
   return 0;
 }
 
+int evaluate_RPN_expression(const char *expression) {
+  int s = 0, v, v1, v2;
+  for (; *expression != '\0'; ++expression) {
+    char ch = *expression;
+    if (isdigit(ch)) {
+      push(ch - '0');
+      if (last_error != 0) {
+        break;
+      }
+    } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+      v2 = pop();
+      if (last_error != 0) {
+        break;
+      }
+      v1 = pop();
+      if (last_error != 0) {
+        break;
+      }
+      if (ch == '+') {
+        v = v1 + v2;
+      } else if (ch == '-') {
+        v = v1 - v2;
+      } else if (ch == '*') {
+        v = v1 * v2;
+      } else if (ch == '/') {
+        v = v1 / v2;
+      }
+      push(v);
+      if (last_error != 0) {
+        break;
+      }
+    } else if (ch == '=') {
+      s = pop();
+      break;
+    }
+  }
+  return s;
+}
+
 int main() {
   char ch;
   bool stop = false;
+  char expression[200];
+  int len = 0;
   for (;;) {
-    int s = 0, v, v1, v2;
+    int s = 0;
     make_empty();
     last_error = 0;
     printf("Nhập một biểu thức hậu tố (RPN): ");
     for (;;) {
       scanf(" %c", &ch);
-      if (isdigit(ch)) {
-        push(ch - '0');
-        if (last_error != 0) {
-          break;
-        }
-      } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-        v2 = pop();
-        if (last_error != 0) {
-          break;
-        }
-        v1 = pop();
-        if (last_error != 0) {
-          break;
-        }
-        if (ch == '+') {
-          v = v1 + v2;
-        } else if (ch == '-') {
-          v = v1 - v2;
-        } else if (ch == '*') {
-          v = v1 * v2;
-        } else if (ch == '/') {
-          v = v1 / v2;
-        }
-        push(v);
-        if (last_error != 0) {
-          break;
-        }
-      } else if (ch == '=') {
-        s = pop();
+      expression[len] = ch;
+      ++len;
+      if (ch == '=') {
+        expression[len] = '\0';
+        s = evaluate_RPN_expression(expression);
+        len = 0;
         break;
-      } else {
+      } else if (!isdigit(ch) && ch != '+' && ch != '-' && ch != '*' && ch != '/') {
         stop = true;
         break;
       }

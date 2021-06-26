@@ -62,7 +62,7 @@ Hàm này coi như name trỏ tới chuỗi chứa tên và sau đó là họ (t
 double compute_average_word_length(const char *sentence);
 Hàm trả về độ dài trung bình của các từ trong chuỗi được trỏ đến bởi sentence.
 
-12. Điều chỉnh chương trình 14 chương 8 sao cho nó lưu các từ trong một mảng 2 chiều kiểu char khi nó đọc câu, với mỗi dòng của mảng lưu một từ. Giả sử chương trình chứa không quá 30 từ và không có từ nào chứa nhiều hơn 20 ký tự. Hãy chắc chắn rằng ký tự '\0' được lưu ở cuối mỗi từ để nó được coi như một chuỗi.
+12. Điều chỉnh chương trình 14 chương 8 sao cho nó lưu các từ trong một mảng 2 chiều kiểu char khi nó đọc câu, với mỗi dòng của mảng lưu một từ. Giả sử câu được nhập vào chứa không quá 30 từ và không có từ nào chứa nhiều hơn 20 ký tự. Hãy chắc chắn rằng ký tự '\0' được lưu ở cuối mỗi từ để nó được coi như một chuỗi.
 
 13. Điều chỉnh chương trình 15 chương 8 sao cho nó bao gồm hàm sau:
 void encrypt(char *message, int shift);
@@ -81,7 +81,7 @@ void reverse(char *message);
 Hàm này đảo ngược chuỗi được trỏ tới bởi message.
 Gợi ý: Sử dụng 2 con trỏ, một con trỏ ban đầu trỏ tới ký tự đầu tiên của chuỗi và con trỏ còn lại ban đầu trỏ tới ký tự cuối của chuỗi. Hoán đổi những ký tự này, sau đó di chuyển các con trỏ về phía nhau và tiếp tục hoán đổi các ký tự. Lặp cho tới khi hai con trỏ gặp nhau.
 
-17. Điều chỉnh chương trình 2 chương 12 sao cho nó bao gồm hàm sau:
+17. Điều chỉnh chương trình bài 2 chương 12 sao cho nó bao gồm hàm sau:
 bool is_palindrome(const char *message);
 Hàm trả về true nếu chuỗi được trỏ tới bởi message là palindrome.
 
