@@ -9,8 +9,9 @@
 5. Điều chỉnh chương trình bài 8 chương 5 sao cho thời gian được lưu trong một mảng. Các phần tử của mảng là các cấu trúc lưu thời gian khởi hành và thời gian đến. (Thời gian là số nguyên, biểu diễn số phút tính từ lúc nửa đêm). Chương trình sử dụng vòng lặp để tìm kiếm trong mảng thời gian đi gần nhất so với thời gian người dùng đã nhập vào.
 
 6. Điều chỉnh chương trình bài 9 chương 5 sao cho mỗi ngày được người dùng nhập vào được lưu trong một cấu trúc date. Cài đặt hàm
-int compare_dates(struct date d1, struct date d2);
-  - Trả về -1 nếu d1 < d2
-  - Trả về 0 nếu d1 == d2
-  - Trả về 1 nếu d1 > d2
+int compare_dates(struct date *d1, struct date *d2);
+Gọi day1 và day2 là các ngày được trỏ tới bởi các con trỏ d1 và d2. Hàm compare_dates:
+  - Trả về -1 nếu day1 < day2
+  - Trả về 0 nếu day1 == day2
+  - Trả về 1 nếu day1 > day2
 và đưa vào chương trình của bạn.

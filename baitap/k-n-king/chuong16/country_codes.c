@@ -1,7 +1,4 @@
-struct dialing_code {
-  char *country;
-  int code;
-};
+#include "country_codes.h"
 
 const struct dialing_code country_codes[] =
   {{"Argentina",     54},   {"Bangladesh",    880},
@@ -20,3 +17,7 @@ const struct dialing_code country_codes[] =
    {"Thái Lan",      66},   {"Thổ Nhĩ Kỳ",     90},
    {"Ukraine",      380},   {"Liên Hiệp Anh",  44},
    {"Mỹ",             1},   {"Việt Nam",       84}};
+
+int get_codes_size() {
+  return sizeof(country_codes)/sizeof(country_codes[0]);
+}
