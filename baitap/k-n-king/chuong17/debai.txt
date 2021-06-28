@@ -1,6 +1,6 @@
 1. Điều chỉnh chương trình inventory.c có trong chương 16 sao cho mảng inventory được cấp phát động và sau đó được cấp phát lại mỗi khi nó bị đầy. Sử dụng malloc để cấp phát bộ nhớ ban đầu đủ cho 10 linh kiện. Khi mảng không còn chỗ cho các linh kiện mới, sử dụng realloc để nhân đôi kích thước của nó. Lặp lại thao tác nhân đôi mỗi khi mảng bị đầy.
 
-2. Điều chỉnh chương trình inventory.c có trong chương 16 sao cho lệnh p (in) gọi qsort để sắp xếp mảng inventory trước khi xuất ra các linh kiện.
+2. Điều chỉnh chương trình inventory.c có trong chương 16 sao cho lệnh p (in) gọi qsort để sắp xếp mảng inventory theo mã linh kiện trước khi xuất ra các linh kiện.
 
 3. Điều chỉnh chương trình inventory2.c bằng cách bổ xung lệnh e (xóa-erase) để người dùng có thể xóa một linh kiện khỏi CSDL.
 
