@@ -1,6 +1,6 @@
 1. Mở rộng chương trình canopen.c sao cho người dùng có thể đưa các tên tệp với số lượng bất kỳ vào dòng lệnh:
 canopen foo bar baz
-Chương trình cần in thông báo Có thể mở hoặc Không thể mở riêng cho mỗi tệp.Chương trình kết thúc với trạng thái EXIT_FAILURE nếu không thể mở một hoặc nhiều tệp.
+Chương trình cần in thông báo Có thể mở hoặc Không thể mở riêng cho mỗi tệp. Chương trình kết thúc với trạng thái EXIT_FAILURE nếu không thể mở một hoặc nhiều tệp.
 
 2. Viết chương trình chuyển đổi tất cả các chữ cái trong một tệp thành chữ hoa. (Các ký tự không phải là chữ cái được giữ nguyên không thay đổi.) Chương trình nhận tên tệp qua tham số dòng lệnh và đưa kết quả ra stdout.
 
@@ -8,7 +8,7 @@ Chương trình cần in thông báo Có thể mở hoặc Không thể mở ri�
 Ví dụ, lệnh sau sẽ đưa các tệp f1.c, f2.c và f3.c lên màn hình:
 fcat f1.c f2.c f3.c
 fcat cần đưa ra thông báo lỗi nếu không thể mở được bất kỳ tệp nào.
-Gợi ý: Vì không thể mở nhiều hơn một tệp ở một thời điểm, fcat chỉ cần một con trỏ tệp duy nhất. Sau khi xử lý xong một tệp, fcat có thể sử dụng cùng một con trỏ tệp để mở tệp tiếp theo.
+Gợi ý: Vì không cần mở nhiều hơn một tệp ở một thời điểm, fcat có thể sử dụng chỉ một con trỏ tệp. Sau khi xử lý xong một tệp fcat đóng tệp đó lại rồi sử dụng con trỏ tệp để mở tệp tiếp theo.
 
 4. a) Viết chương trình đếm số lượng chữ cái trong một tệp văn bản.
 b) Viết chương trình đếm số lượng từ trong một tệp văn bản. (Trong bài này một "từ" được coi đơn giản là bất kỳ chuỗi ký tự liên tiếp nào không chứa khoảng trắng.)
