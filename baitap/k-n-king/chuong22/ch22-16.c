@@ -9,23 +9,26 @@ int main(int argc, char *argv[])
   int ch;
 
   if (argc != 3) {
-    fprintf(stderr, "Sử dụng: fcopy nguồn đích\n");
+    fprintf(stderr, "Sử dụng: fcopy tệp-nguồn tệp-đích\n");
     exit(EXIT_FAILURE);
   }
 
   if ((source_fp = fopen(argv[1], "rb")) == NULL) {
-    fprintf(stderr, "Không thể mở %s\n", argv[1]);
+    fprintf(stderr, "Không thể mở %s để đọc\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
   if ((dest_fp = fopen(argv[2], "wb")) == NULL) {
-    fprintf(stderr, "Không thể mở %s\n", argv[2]);
+    fprintf(stderr, "Không thể mở %s để ghi\n", argv[2]);
     fclose(source_fp);
     exit(EXIT_FAILURE);
   }
 
-  while ((ch = getc(source_fp)) != EOF)
-    putc(ch, dest_fp);
+  char buff[512];
+  int n;
+  while ((n = fread(buff, sizeof(char), 512, source_fp)) > 0) {
+    fwrite(buff, sizeof(char), n, dest_fp);
+  }
 
   fclose(source_fp);
   fclose(dest_fp);

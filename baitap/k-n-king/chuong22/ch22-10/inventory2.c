@@ -1,21 +1,22 @@
-/* Duy trì một CSDL linh kiện (sử dụng mảng) */
-#include <stdio.h>
-#include <string.h>
+/* Quản lý một CSDL linh kiện (Phiên bản sử dụng danh sách móc nối đơn) */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "readline.h"
 
 #define NAME_LEN 25
-#define MAX_PARTS 100
 
 struct part {
   int number;
-  char name[NAME_LEN + 1];
+  char name[NAME_LEN+1];
   int on_hand;
-} inventory [ MAX_PARTS ];
+  struct part *next;
+};
 
-int num_parts = 0;  // Số lượng linh kiện đang được lưu
+struct part *inventory = NULL;   /* Con trỏ tới linh kiện đầu tiên */
 
-int find_part(int number);
+struct part *find_part(int number);
 void insert(void);
 void search(void);
 void update(void);
@@ -30,12 +31,15 @@ void restore(void);
  *       người dùng nhập một mã không hợp lệ.         *
  ******************************************************/
 
-int main(void) {
+int main(void)
+{
   char code;
+
   for (;;) {
-    printf("Nhập một mã lệnh: ");
+    printf("Nhập mã lệnh: ");
     scanf(" %c", &code);
-    while (getchar() != '\n') {}
+    while (getchar() != '\n')   /* skips to end of line */
+      ;
     switch (code) {
       case 'i': insert();
                 break;
@@ -50,57 +54,71 @@ int main(void) {
       case 'r': restore();
                 break;
       case 'q': return 0;
-      default : printf("Mã lệnh không hợp lệ.\n");
+      default:  printf("Mã lệnh không hợp lệ\n");
                 break;
     }
     printf("\n");
   }
-  return 0;
 }
 
 /**********************************************************
  * find_part: Tìm kiếm mã linh kiện trong mảng inventory. *
  *            Trả về chỉ số mảng nếu mã linh kiện được     *
- *            tìm thấy; nếu ngược lại trả về -1.          *
+ *            tìm thấy; nếu ngược lại trả về NULL.          *
  **********************************************************/
-int find_part(int number)
+struct part *find_part(int number)
 {
-  int i;
+  struct part *p;
 
-  for (i = 0; i < num_parts; i++)
-    if (inventory[i].number == number)
-      return i;
-  return -1;
+  for (p = inventory;
+       p != NULL && number > p->number;
+       p = p->next)
+    ;
+  if (p != NULL && number == p->number)
+    return p;
+  return NULL;
 }
 
 /**********************************************************
  * insert: Hỏi người dùng thông tin về linh kiện mới và   *
  *         thêm linh kiện vào CSDL. In một thông báo lỗi  *
  *         và kết thúc thao tác nếu mã linh kiện đã có    *
- *         trong CSDL hoặc CSDL đã đầy.                   *
+ *         trong CSDL hoặc không thể cấp phát bộ nhớ cho  *
+ *         linh kiện mới .                                *
  **********************************************************/
 void insert(void)
 {
-  int part_number;
+  struct part *cur, *prev, *new_node;
 
-  if (num_parts == MAX_PARTS) {
-    printf("CSDL đã đầy. Không thể thêm linh kiện mới.\n");
+  new_node = malloc(sizeof(struct part));
+  if (new_node == NULL) {
+    printf("CSDL đã đầy; Không thể lưu thêm link kiện mới.\n");
     return;
   }
 
-  printf("Nhập mã linh kiện: ");
-  scanf("%d", &part_number);
-  if (find_part(part_number) >= 0) {
-    printf("Mã linh kiện đã tồn tại.\n");
+  printf("Nhập mã số linh kiện: ");
+  scanf("%d", &new_node->number);
+
+  for (cur = inventory, prev = NULL;
+       cur != NULL && new_node->number > cur->number;
+       prev = cur, cur = cur->next)
+    ;
+  if (cur != NULL && new_node->number == cur->number) {
+    printf("Linh kiện đã tồn tại.\n");
+    free(new_node);
     return;
   }
 
-  inventory[num_parts].number = part_number;
   printf("Nhập tên linh kiện: ");
-  read_line(inventory[num_parts].name, NAME_LEN);
+  read_line(new_node->name, NAME_LEN);
   printf("Nhập số lượng tồn kho: ");
-  scanf("%d", &inventory[num_parts].on_hand);
-  num_parts++;
+  scanf("%d", &new_node->on_hand);
+
+  new_node->next = cur;
+  if (prev == NULL)
+    inventory = new_node;
+  else
+    prev->next = new_node;
 }
 
 /***********************************************************
@@ -111,14 +129,15 @@ void insert(void)
  ***********************************************************/
 void search(void)
 {
-  int i, number;
+  int number;
+  struct part *p;
 
-  printf("Nhập mã linh kiện: ");
+  printf("Nhập mã số linh kiện: ");
   scanf("%d", &number);
-  i = find_part(number);
-  if (i >= 0) {
-    printf("Tên linh kiện: %s\n", inventory[i].name);
-    printf("Số lượng tồn kho: %d\n", inventory[i].on_hand);
+  p = find_part(number);
+  if (p != NULL) {
+    printf("Tên linh kiện: %s\n", p->name);
+    printf("Số lượng tồn kho: %d\n", p->on_hand);
   } else
     printf("Không tìm thấy linh kiện.\n");
 }
@@ -131,15 +150,16 @@ void search(void)
  **********************************************************/
 void update(void)
 {
-  int i, number, change;
+  int number, change;
+  struct part *p;
 
   printf("Nhập mã linh kiện: ");
   scanf("%d", &number);
-  i = find_part(number);
-  if (i >= 0) {
-    printf("Nhập thay đổi số lượng tồn kho: ");
+  p = find_part(number);
+  if (p != NULL) {
+    printf("Nhập thay đổi tồn kho: ");
     scanf("%d", &change);
-    inventory[i].on_hand += change;
+    p->on_hand += change;
   } else
     printf("Không tìm thấy linh kiện.\n");
 }
@@ -148,17 +168,17 @@ void update(void)
  * print: In một danh sách các linh kiện trong CSDL,      *
  *        hiển thị mã linh kiện, tên linh kiện, và        *
  *        số lượng tồn kho. Các linh kiện được xuất theo  *
- *        thứ tự được nhập vào trong CSDL.                *
+ *        thứ tự tăng dần mã sản phẩm    .                *
  **********************************************************/
 void print(void)
 {
-  int i;
-  //      1234567890123456789012345678901234567890123
+  struct part *p;
+
   printf("Mã linh kiện   Tên linh kiện               "
          "Số lượng tồn kho\n");
-  for (i = 0; i < num_parts; i++)
-    printf("%7d        %-27s%11d\n", inventory[i].number,
-           inventory[i].name, inventory[i].on_hand);
+  for (p = inventory; p != NULL; p = p->next)
+    printf("%7d        %-27s%11d\n", p->number, p->name,
+           p->on_hand);
 }
 
 /**********************************************************
@@ -174,9 +194,28 @@ void dump(void) {
     printf("Không thể mở tệp %s để ghi.\n", fname);
     return;
   }
-  fwrite(&num_parts, sizeof(num_parts), 1, f);
-  fwrite(inventory, sizeof(inventory[0]), num_parts, f);
+  for (struct part *p = inventory; p != NULL; p = p->next) {
+    fwrite(&p->number, sizeof(p->number), 1, f);
+    fwrite(p->name, sizeof(p->name), 1, f);
+    fwrite(&p->on_hand, sizeof(p->on_hand), 1, f);
+  }
   fclose(f);
+}
+
+void make_empty(struct part *inventory) {
+  if (inventory == NULL) {
+    return;
+  }
+  struct part *prev = NULL, *p = inventory;
+  for (;;) {
+    prev = p;
+    p = p->next;
+    free(prev);
+    if (p == NULL) {
+      break;
+    }
+  }
+  inventory = NULL;
 }
 
 /**********************************************************
@@ -192,7 +231,33 @@ void restore(void) {
     printf("Không thể mở tệp %s để đọc.\n", fname);
     return;
   }
-  fread(&num_parts, sizeof(num_parts), 1, f);
-  fread(inventory, sizeof(inventory[0]), num_parts, f);
+  struct part tmp;
+  struct part *first = NULL, *last = NULL;
+  while (!feof(f)) {
+    if (fread(&tmp.number, sizeof(tmp.number), 1, f) &&
+        fread(&tmp.name, sizeof(tmp.name), 1, f) &&
+        fread(&tmp.on_hand, sizeof(tmp.on_hand), 1, f)) {
+      struct part *cur = malloc(sizeof(struct part));
+      cur->number = tmp.number;
+      strcpy(cur->name, tmp.name);
+      cur->on_hand = tmp.on_hand;
+      if (last) {
+        last->next = cur;
+        last = cur;
+      } else {
+        first = last = cur;
+      }
+    } else {
+      if (!feof(f)) {
+        printf("Lỗi đọc tệp.\n");
+        make_empty(first);
+        return;
+      } else {
+        break;
+      }
+    }
+  }
   fclose(f);
+  make_empty(inventory);
+  inventory = first;
 }

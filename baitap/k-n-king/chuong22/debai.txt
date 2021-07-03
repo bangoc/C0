@@ -80,12 +80,12 @@ Cho phép người dùng nhập ngày theo định dạng 10-11-2020 hoặc 10/1
 Gợi ý: Sử dụng sscanf để tách ngày, tháng, và năm từ tham số dòng lệnh.
 
 12. Điều chỉnh chương trình bài 2 chương 3 sao cho chương trình đọc một loạt các sản phẩm từ tệp và hiển thị dữ liệu dạng bảng. Mỗi dòng của tệp có định dạng:
-Sản phẩm, giá, ngày/tháng/năm
+Mã sản phẩm, giá, ngày/tháng/năm
 Ví dụ, giả sử tệp có chứa các dòng sau:
 583, 135000, 24/10/2005
 3912, 599000, 27/7/2008
 Đầu ra của chương trình tương tự như sau:
-Sản phẩm          Đơn giá            Ngày mua
+Mã sản phẩm      Đơn giá            Ngày mua
 583               135000            24/10/2005
 3912              599000            27/7/2008
 Chương trình nhận tên tệp qua tham số dòng lệnh.
@@ -103,9 +103,9 @@ Ví dụ, tệp flights.dat có thể có nội dung như sau nếu nó chứa t
 
 14. Điều chỉnh chương trình bài 15 chương 8 sao cho nó hỏi ngời dùng nhập vào tên tệp cần được mã hóa:
 Ví dụ:
-Nhập tên tệp để mã hóa: message.txt
+Nhập tên tệp chứa thông tin cần được mã hóa: message.txt
 Nhập khoảng di chuyển (1-25): 3
-Chương trình viết thông điệp được mã hóa vào tệp cùng tên nhưng bổ xung thêm phần mở rộng .enc. Trong ví dụ này, tên tệp ban đầu là mesage.txt, vì vậy thông điệp mã hóa sẽ được lưu trong tệp với tên mesage.txt.enc. Không có giới hạn kích thước của tệp cần được mã hóa hoặc độ dài dòng trong tệp.
+Chương trình viết thông điệp được mã hóa vào tệp cùng tên nhưng bổ xung thêm phần mở rộng .enc. Trong ví dụ này, tên tệp ban đầu là mesage.txt, vì vậy thông điệp sau mã hóa sẽ được lưu trong tệp với tên mesage.txt.enc. Không có giới hạn kích thước của tệp cần được mã hóa hoặc độ dài dòng trong tệp.
 
 15. Điều chỉnh chương trình justify có trong chương 15 sao cho nó đọc từ một tệp văn bản và viết vào tệp khác. Chương trình nhận các tên tệp từ dòng lệnh.
 
