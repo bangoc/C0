@@ -5,7 +5,7 @@ b) Làm sao để nâng cao tính ngẫu nhiên của các giá trị do rand tr
 
 3. Viết một chương trình sử dụng hàm clock để đo thời gian mà qsort sắp xếp một mảng 1000 số nguyên có thứ tự ngược lại ở thời điểm ban đầu. Sau đó tiếp tục chạy chương trình cho các mảng 10000 và 100000 phần tử.
 
-4. Viết chương trình hỏi người dùng nhập một ngày (ngày, tháng và năm) và một số nguyên n, sau đó in ra ngày sau đó n ngày.
+4. Viết chương trình hỏi người dùng nhập một ngày (ngày, tháng và năm) và một số nguyên n, rồi in ra ngày sau đó n ngày.
 
 5. Viết một chương trình hỏi người dụng nhập vào hai ngày, sau đó in khoảng cách tính bằng ngày giữa hai ngày.
 Gợi ý: Sử dụng các hàm mktime và difftime.

@@ -32,5 +32,7 @@ int main() {
   } else {
     printf("Địa điểm bản địa khác địa điểm C.\n");
   }
+  free(native_locale);
+  free(C_locale);
   return 0;
 }
