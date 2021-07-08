@@ -1,4 +1,8 @@
-/* Kiểm tra số xem có chữ số lặp lại hay không */
+/*
+  Kiểm tra số xem có chữ số lặp lại hay không
+  + thực hiện kiểm tra nhiều lần cho tới khi
+    người dùng một số <= 0
+*/
 #include <stdbool.h>  // C99
 #include <stdio.h>
 
