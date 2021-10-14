@@ -33,21 +33,21 @@ int main() {
   printf("-------Các kiểu số thực--------\n");
   printf("Cơ số trong biểu diễn số thực = %d\n", FLT_RADIX);
   printf("Số chữ số của phần mantissa (M):\n");
-  printf("float        - %d bits\n", FLT_MANT_DIG);
-  printf("double       - %d bits\n", DBL_MANT_DIG);
-  printf("long double  - %d bits\n", LDBL_MANT_DIG);
+  printf("float        - %d\n", FLT_MANT_DIG);
+  printf("double       - %d\n", DBL_MANT_DIG);
+  printf("long double  - %d\n", LDBL_MANT_DIG);
 
   printf("Phần mũ - min, max:\n");
   printf("float         - %d, %d \n", FLT_MIN_EXP, FLT_MAX_EXP);
   printf("double        - %d, %d \n", DBL_MIN_EXP, DBL_MAX_EXP);
   printf("long double   - %d, %d \n", LDBL_MIN_EXP, LDBL_MAX_EXP);
 
-  printf("Các đặc điểm - min, max, độ chính xác: \n");
+  printf("Các đặc điểm - min, max, số chữ số dec, epsilon \n");
   printf("float       - " PRI_FLT ", "
-      PRI_FLT ", %d\n", FLT_MIN, FLT_MAX, FLT_DIG);
+      PRI_FLT ", %d, " PRI_FLT "\n", FLT_MIN, FLT_MAX, FLT_DIG, FLT_EPSILON);
   printf("double      - " PRI_DBL ", "
-      PRI_DBL ", %d\n", DBL_MIN, DBL_MAX, DBL_DIG);
+      PRI_DBL ", %d, " PRI_DBL "\n", DBL_MIN, DBL_MAX, DBL_DIG, DBL_EPSILON);
   printf("long double - " PRI_LDBL ", "
-      PRI_LDBL ", %d\n", LDBL_MIN, LDBL_MAX, LDBL_DIG);
+      PRI_LDBL ", %d, " PRI_LDBL "\n", LDBL_MIN, LDBL_MAX, LDBL_DIG, LDBL_EPSILON);
   return 0;
 }
