@@ -19,7 +19,9 @@
 #include <stdio.h>
 
 #define type_name(x) _Generic((x), \
+            _Bool: "_Bool", \
             char: "char", \
+            signed char: "signed char", \
             unsigned char: "unsigned char", \
             short: "short", \
             unsigned short: "unsigned short", \
@@ -41,8 +43,9 @@
 int main() {
   printf("Các hằng số nguyên: \n");
   PRINT_TYPENAME(10);
-  PRINT_TYPENAME(1000);
-  PRINT_TYPENAME(1000000);
+  PRINT_TYPENAME(123456789123456);
+  PRINT_TYPENAME(4294967295U);
+  PRINT_TYPENAME(4294967295);
   PRINT_TYPENAME(10l);
   PRINT_TYPENAME(10L);
   PRINT_TYPENAME(10ll);
@@ -56,18 +59,23 @@ int main() {
   PRINT_TYPENAME(0xAB);
   PRINT_TYPENAME(0XAB);
   PRINT_TYPENAME(0XABl);
-  PRINT_TYPENAME(0XABll);
+  PRINT_TYPENAME(0XABLL);
   PRINT_TYPENAME(0XABu);
   PRINT_TYPENAME(0XABul);
-  PRINT_TYPENAME(0XABull);
+  PRINT_TYPENAME(0XABlu);
+  PRINT_TYPENAME(0XABuLL);
   PRINT_TYPENAME(01234567);
   PRINT_TYPENAME(01234567u);
   PRINT_TYPENAME(01234567l);
   PRINT_TYPENAME(01234567ll);
   PRINT_TYPENAME(01234567ul);
   PRINT_TYPENAME(01234567ull);
+  PRINT_TYPENAME(2147483648);
+  PRINT_TYPENAME(0x80000000);
 
   printf("Các hằng số thực: \n");
+  PRINT_TYPENAME(0x1p1);
+  PRINT_TYPENAME(1e1);
   PRINT_TYPENAME(1.0f);
   PRINT_TYPENAME(1.0);
   PRINT_TYPENAME(1.0l);
@@ -75,6 +83,7 @@ int main() {
   PRINT_TYPENAME(0x1.1fp-3);
   PRINT_TYPENAME(0x1.1fp-3f);
   PRINT_TYPENAME(0x1.1fp-3l);
+  PRINT_TYPENAME(0x1.Fp0f);
 
   printf("Một số hằng ký tự nguyên: \n");
   PRINT_TYPENAME('A');
@@ -90,5 +99,22 @@ int main() {
   }
   PRINT_TYPENAME(((char)'A'));
   PRINT_TYPENAME(((unsigned char)'A'));
+
+  enum Bool {False, True};
+  PRINT_TYPENAME(False);
+
+  char c;
+  int i;
+  unsigned int u;
+  long l;
+  unsigned long ul;
+  float f;
+  double lf;
+  long double llf;
+  PRINT_TYPENAME(u + f);
+  PRINT_TYPENAME(i + u);
+  PRINT_TYPENAME((int)(u + f));
+  PRINT_TYPENAME(c);
+  PRINT_TYPENAME(c + c);
   return 0;
 }
