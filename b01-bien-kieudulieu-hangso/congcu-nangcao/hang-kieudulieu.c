@@ -111,10 +111,12 @@ int main() {
   float f;
   double lf;
   long double llf;
+  long long ll;
   PRINT_TYPENAME(u + f);
   PRINT_TYPENAME(i + u);
   PRINT_TYPENAME((int)(u + f));
   PRINT_TYPENAME(c);
   PRINT_TYPENAME(c + c);
+  PRINT_TYPENAME(ul + ll);
   return 0;
 }
