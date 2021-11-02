@@ -6,7 +6,7 @@ int main() {
   n = a / b;
   d = a - n * b;
 
-  // %d là định dạng xuất số nguyên có dấu
+  // %d là đặc tả xuất số nguyên có dấu
   printf("n = %d d = %d (%d)\n",
                n,    d, a % b);
   printf("%d/%d = %d   %d %% %d = %d\n",

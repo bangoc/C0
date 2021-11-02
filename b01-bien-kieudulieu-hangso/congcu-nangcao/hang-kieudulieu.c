@@ -120,5 +120,11 @@ int main() {
   PRINT_TYPENAME(c);
   PRINT_TYPENAME(c + c);
   PRINT_TYPENAME(ul + ll);
+  _Bool b;
+  PRINT_TYPENAME(b + c);
+  PRINT_TYPENAME( u < 100);
+  PRINT_TYPENAME(c);
+  PRINT_TYPENAME(+c);
+  PRINT_TYPENAME(-c);
   return 0;
 }
