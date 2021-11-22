@@ -34,6 +34,7 @@
             float: "float", \
             double: "double", \
             long double: "long double", \
+            const int: "const int", \
             default: "still not specified")
 
 #define PRINT_TYPENAME(constant) \
@@ -126,5 +127,7 @@ int main() {
   PRINT_TYPENAME(c);
   PRINT_TYPENAME(+c);
   PRINT_TYPENAME(-c);
+  const int ci = 101;
+  PRINT_TYPENAME(ci);
   return 0;
 }
