@@ -1,18 +1,21 @@
 /*
   (C) Nguyen Ba Ngoc 2021
+  Nhập/xuất đối tượng point
 */
 
 #include <stdio.h>
-struct point {float x; float y;};
-union gtype {long l; double d;};
+struct point {double x, y;};
+void scan_point(struct point *p) {
+  printf("Nhập tọa độ 1 điểm: ");
+  scanf("%lf%lf", &p->x, &p->y);
+}
+void print_point(const struct point *p) {
+  printf("Tọa độ của điểm là (%.2lf, %.2lf)\n",
+        p->x, p->y);
+}
 int main() {
    struct point p;
-   union gtype g;
-   printf("Nhập tọa độ 1 điểm: ");
-   scanf("%f%f", &p.x, &p.y);
-   printf("Bạn đã điểm: (%.3f, %.3f)\n", p.x, p.y);
-   printf("Nhập 1 giá trị kiểu long: ");
-   scanf("%ld", &g.l);
-   printf("Bạn đã nhập %ld\n", g.l);
+   scan_point(&p);
+   print_point(&p);
    return 0;
 }

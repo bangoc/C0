@@ -1,37 +1,39 @@
 /*
-  (C) Nguyen Ba Ngoc 2021
+  (C) Nguyen Ba Ngoc 2022
+  Tìm điểm gần gốc tọa độ nhất, triển khai với hàm.
 */
 
 #include <stdio.h>
-#include <math.h>
-struct point {
-  double x, y;
-};
-double distance(struct point *p1, struct point *p2) {
-  double x = (p1->x - p2->x), y = (p1->y - p2->y);
-  return sqrt(x*x + y*y);
+struct point {double x, y;};
+void scan_point(struct point *p) {
+  printf("Nhập tọa độ 1 điểm: ");
+  scanf("%lf%lf", &p->x, &p->y);
 }
-#define N 100
+void print_point(const struct point *p) {
+  printf("Tọa độ của điểm là (%.2lf, %.2lf)\n",
+        p->x, p->y);
+}
+#define MAXN 100
+int less_point(const struct point*p1,
+        const struct point *p2) {
+  return p1->x * p1->x + p1->y * p1->y <
+           p2->x * p2->x + p2->y * p2->y;
+}
 int main() {
-   int n, j = 0;
-   printf("Nhập số n (<= %d) = ", N);
+   struct point a[MAXN];
+   printf("Nhập số lượng phần tử (<=100): ");
+   int n;
    scanf("%d", &n);
-
-   // a[100], có thể cải tiến với mảng cấp phát động.
-   struct point a[N];
+   printf("Nhập %d điểm: \n", n);
    for (int i = 0; i < n; ++i) {
-     printf("Nhập điểm %d: ", i);
-     scanf("%lf%lf", &a[i].x, &a[i].y);
+     scan_point(a + i);
    }
-   struct point p0 = {0, 0};
-   double min = distance(&p0, &a[0]);
+   struct point min = a[0];
    for (int i = 1; i < n; ++i) {
-     double dist = distance(&p0, &a[i]);
-     if (dist < min) {
-       min = dist;
-       j = i;
+     if (less_point(&a[i], &min)) {
+       min = a[i];
      }
    }
-   printf("Điểm gần nhất là: (%.3lf, %.3lf)\n",  a[j].x, a[j].y);
+   print_point(&min);
    return 0;
 }
