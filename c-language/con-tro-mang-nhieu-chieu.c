@@ -2,15 +2,18 @@
   (C) Nguyễn Bá Ngọc (2022)
   Định dạng hướng dòng của mảng nhiều chiều và con trỏ
   tới mảng trong C:
-  - Mảng 3 chiều được coi như mảng 1 chiều của các mảng
-    2 chiều. Biến mảng 3 chiều về bản chất là con trỏ
-    tới mảng 2 chiều.
+  Mảng n chiều được coi như mảng 1 chiều (kích thước đầu tiên
+  theo chiều từ trái sang phải), của mảng n-1 chiều (các chiều
+  còn lại).
+  - Biến mảng 3 chiều có thể được sử dụng như con trỏ tới mảng
+    2 chiều.
       int a[d1][d2][d3];
-    a có thể được sử dụng như con trỏ tới các mảng 2 chiều, có
+    a có thể được sử dụng như con trỏ tới các mảng d2 x d3, có
     kiểu int(*)[d2][d3].
-  - Tiếp tục, biến mảng 2 chiều là con trỏ tới mảng 1 chiều.
-  - Biến mảng 1 chiều là con trỏ tới phần tử đầu tiên
-    trong mảng.
+  - Tiếp tục, biến mảng 2 chiều có thể được sử dụng như con trỏ
+    tới mảng 1 chiều.
+  - Biến mảng 1 chiều có thể được sử dụng như  con trỏ tới phần tử
+    (đầu tiên) của mảng.
 */
 #include <stdio.h>
 int main() {
