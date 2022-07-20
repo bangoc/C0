@@ -1,0 +1,408 @@
+1. What is the final value of x?
+int main() {
+  int a, b;
+  int x = a < b? 10: b > 20? 30: 50;
+  return 0;
+}
+
+a. 10
+b. 30
+c. 50
+d. Unknown
+
+2. What is the final value of x?
+int a, b;
+int main() {
+  int x = a < b? 10: b > 20? 30: 50;
+  return 0;
+}
+a. 10
+b. 30
+c. 20
+d. 50
+
+3. What is the output on the screen?
+int a = 11;
+if (a % 3) {
+  printf("One");
+} else {
+  printf("Two");
+}
+a. One
+b. Two
+b. None of aboves
+
+4. What is the output on the screen?
+const char *str = "abc";
+if (strcmp(str, "abc")) {
+  printf("One");
+} else {
+  printf("Two");
+}
+a. One
+b. Two
+c. None of aboves
+
+5. What is the output on the sreen?
+int a = 10;
+switch (a) {
+  default: printf("default ");
+  case 1: printf("One ");
+  case 2: printf("Two "); break;
+  case 3: printf("Three ");
+}
+a. default
+b. default One Two
+c. default One Two Three
+d. None of aboves
+
+6. What is the output on the screen?
+int a = 3;
+switch (a) {
+  case 1: printf("One ");
+  case 2: printf("Two "); break;
+  case 3: printf("Three ");
+  default: printf("default ");
+}
+a. Three
+b. Three default
+c. One Two
+d. One Two Three
+
+7. What is the final value of x?
+int x = 0;
+while (x) {
+  x += 10;
+  if (x > 11) break;
+}
+a. 0
+b. 20
+c. 10
+d. Infinite loop
+
+8. What is the final value of x?
+int x = 0;
+do {
+  x += 10;
+  if (x > 11) break;
+} while (x);
+a. 0
+b. 20
+c. 10
+d. Infinite loop
+
+9. What is the final value of x?
+int x = 0;
+for (int i = 0; i < 100; ++i) {
+  ++x;
+  if (i > 10) {
+    break;
+  }
+}
+a. 10
+b. 11
+c. 12
+d. None of aboves
+
+10.  What is the final value of x?
+int x = 0, i = 1;
+for (; i < 100; ++i) {
+  ++x;
+  if (i % 2) {
+    continue;
+  }
+  if (i > 10) {
+    break;
+  }
+}
+a. 10
+b. 11
+c. 12
+d. 13
+
+11. What is the final value of x?
+int x = 0, i = 0;
+for (; i < 100; ++i) {
+  if (i % 2) {
+    continue;
+  }
+  ++x;
+  if (i > 10) {
+    break;
+  }
+}
+
+a. 6
+b. 7
+c. 5
+d. None of aboves
+
+12. Choose the suitable control description to complete the for loop to print elements of an array a of n elements in the reverse order
+for (/* control description */) {
+  printf(" a[i]");
+}
+a. int i = n; i >= 1; --i
+b. int i = n - 1; i > 0; --i
+c. unsigned i = n - 1; i >= 0; --i
+d. None of aboves
+
+13. Choose the suitable control description to complete the for loop
+to calculate the sum of elements of an array of n elements with odd index?
+int i = 0, sum = 0;
+for ( /* control description */) {
+  if (i % 2) {
+    sum += a[i];
+  }
+}
+a. int i = 0; i < n - 1; ++i
+b. ; i < n; i += 2
+c. int i = 1; i < n; i += 2
+d. None of aboves
+
+14. Choose the correct statement about these codes?
+#include <stdio.h>
+char *message() {
+  char buff[] = "Hello world!";
+  return buff;
+}
+int main() {
+  printf("%s", message());
+  return 0;
+}
+a. Hello world! will be printed on the screen
+b. We should not expect that Hello world! will be printed
+
+15. Choose the correct statement about these codes?
+#include <stdio.h>
+char *message() {
+  static char buff[] = "Hello world!";
+  return buff;
+}
+int main() {
+  printf("%s", message());
+  return 0;
+}
+a. Hello world! will be printed on the screen
+b. We should not expect that Hello world! will be printed
+
+16. Choose the correct statement about these codes?
+#include <stdio.h>
+#include <string.h>
+char *message() {
+  static char buff[] = "Hello world!";
+  return buff;
+}
+int main() {
+  strcpy(message(), "HELLO WORLD!");
+  printf("%s", message());
+  return 0;
+}
+a. Hello world! will be printed on the screen
+b. HELLO WORLD! will be printed on the screen
+c. There is a syntax error.
+d. Undefined behavior.
+
+17. What will be printed on the screen?
+#include <stdio.h>
+int acc(int x) {
+  static int s = 0;
+  s += x;
+  return x;
+}
+int main() {
+  acc(10);
+  printf("%d\n", acc(20));
+  return 0;
+}
+a. 10
+b. 20
+c. 30
+d. None of aboves
+
+18. What will be printed on the screen?
+#include <stdio.h>
+int acc(int x) {
+  static int s = 0;
+  s += x;
+  return x;
+}
+int main() {
+  acc;
+  acc(20);
+  printf("%d\n", acc(30));
+  return 0;
+}
+a. 20
+b. 30
+c. 50
+d. None of aboves
+
+19. What is the final value of x (at the end of the main function)?
+int x;
+void f() {
+  x += 10;
+}
+int main() {
+  f();
+  f();
+  return 0;
+}
+a. 0
+b. 10
+c. 20
+d. Unknown
+
+20. What is the final value of x?
+int f(int x, int y) {
+  return x + y;
+}
+int main() {
+  int x = 10;
+  x = f(x, 20);
+  x = f(x, 30);
+  return 0;
+}
+a. 10
+b. 30
+c. 60
+d. None of aboves
+
+21. What is the final value of x?
+int a[] = {1, 2, 3, 5, 6, 7, 9};
+int *p = a + 3;
+int x = p[-1];
+a. 2
+b. 3
+c. 5
+d. Undefined, the array index value should not be negative.
+
+22. What is the final value of x?
+int a[] = {1, 2, 3};
+int *p1 = a, *p2 = a + 3;
+int x = p2 - p1;
+a. 2
+b. 3
+c. 12
+d. Undefined, because p2 doesn't point to an element of a.
+
+23. What is the final value of x?
+int a[] = {1, 2, 3};
+int *p = a + 1;
+int x = p[1];
+a. 2
+b. 3
+c. 1
+d. Syntax error
+
+24. What is the most likely output on the screen?
+#include <stdio.h>
+void f(char *s) {
+  s[0] = 'p';
+}
+int main() {
+  char s[] = "hello";
+  char *s1 = s;
+  strcpy(s, "HELLO");
+  f(s1);
+  printf("%s", s1);
+  return 0;
+}
+
+a. hello
+b. HELLO
+c. pELLO
+d. pello
+
+25. What is the most likely output on the screen?
+struct str {
+  char s[25];
+};
+struct str s1 = {"abc"};
+struct str s2 = s1;
+((char*)(&s1))[0] = 'A';
+printf("%s", s2.s);
+
+a. Abc
+b. abc
+c. Implementation defined
+d. None of aboves
+
+26. What is the most likely output on the screen?
+struct str {
+  char *s;
+};
+char s[] = "abc";
+struct str s1 = {s};
+struct str s2 = s1;
+s[1] = 'B';
+s1.s[0] = 'A';
+s2.s[2] = 'C';
+printf("%s", s2.s);
+
+a. abc
+b. aBc
+c. ABC
+d. None of aboves
+
+27. What is the most likely output on the screen?
+#include <stdio.h>
+struct str {
+  char *s;
+};
+void f(struct str s) {
+  static char buff[] = "def";
+  s.s = buff;
+}
+int main() {
+  struct str s1 = {"abc"};
+  f(s1);
+  printf("%s", s1.s);
+  return 0;
+}
+
+a. def
+b. abc
+c. (nil)
+d. Unknown
+
+28. What is the most likely output on the screen?
+#include <stdio.h>
+struct str {
+  char *s;
+};
+void f(struct str s) {
+  s.s[0] = 'D';
+  s.s = "nil";
+}
+int main() {
+  char s[] = "abc";
+  struct str s1 = {s};
+  f(s1);
+  printf("%s", s1.s);
+  return 0;
+}
+
+a. Dab
+b. abc
+c. nil
+d. None of aboves
+
+29. Which relation about the sizes is the most likely to be correct?
+union gtype {
+  long x;
+  double d;
+};
+a. sizeof(union gtype) = sizeof(long) + sizeof(double)
+b. sizeof(union gtype) >= sizeof(long) + sizeof(double)
+c. sizeof(union gtype) >= max(sizeof(long), sizeof(double))
+d. None of aboves
+
+30. What is the final value of x?
+char s[10], x;
+scanf("%*d%s%c", s, &x);
+given that the input data stream is: "10 abcd ef\n"
+
+a. 'a'
+b. ' '
+c. 'e'
+d. None of aboves

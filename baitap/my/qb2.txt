@@ -1,0 +1,211 @@
+1. Which name is not a C standard?
+ANSI C
+gnu11
+C93
+C99
+
+2. Which step in the compilation process provides assembly codes?
+Pre-process
+Compile
+Assemble
+Link
+
+3. Which command only preprocesses the source file?
+gcc -c hello.c
+gcc -S hello.c
+gcc -E hello.c
+gcc -v hello.c
+
+4. What is the final value of x?
+unsigned char x = 100;
+x += 177;
+177
+277
+21
+Undefined
+
+5. What is the final value of x?
+signed char x = 16;
+x >> 1;
+8
+16
+32
+Undefined
+
+6. What is the final value of x?
+double x = 6.89;
+x = (int)x;
+6
+7
+1
+Undefined
+
+7. What is the final value of x?
+int y = -1;
+unsigned z = 1;
+int x = y < z;
+1
+-1
+0
+Undefined
+
+8. What is the final value of x?
+long y = -1;
+unsigned z = 1;
+int x = y < z;
+1
+-1
+0
+Undefined
+
+9. What is the final value of x?
+int y = 1;
+unsigned long z = -1;
+int x = y < z;
+1
+-1
+0
+Undefined
+
+10. What is the type of the constant 0xFFFFFFFF? Suppose sizeof(int) == 4
+int
+long
+unsigned int
+unsigned long
+
+11. What is the final value of x?
+char x = 'a';
+x += 2;
+'b'
+'c'
+'d'
+Syntax error
+
+12. What is the final value of x?
+int x = 10;
+x += 'f' - 'a';
+107
+5
+15
+Syntax error
+
+13. What is the final value of x?
+double x = 32.2;
+x >>= 1;
+16.1
+31.1
+16
+Invalid expression
+
+14. What is the final value of x?
+int x = -64;
+x >>= 1;
+-32
+-65
+32
+Undefined
+
+15. What is the final value of x?
+unsigned char c1 = 8, c2 = 1;
+int x = c1 & (c2 << 3);
+8
+16
+0
+Undefined
+
+16. What is the most likely output?
+printf("%8.1f", 3.14);
+     3.1
+3.1
+     3.14
+3.14
+
+17. What is the the most likely output?
+printf("%08.1f", 3.88);
+000003.9
+     3.9
+3.9
+     3.8
+
+18. What is the output?
+printf("3.1f", 12.123);
+12.
+12.1
+12.0
+None of aboves
+
+19. What is the value of x and c?
+int x;
+char c;
+scanf("%d%c", &x, &c);
+given that the input data is: "123 a\n"
+123 ' '
+123 'a'
+undefined '1'
+123 '\n'
+
+20. What is the value of x and c?
+int x;
+char c;
+scanf("%c%d", &c, &x);
+given that the input data is: "123a\n"
+23 '1'
+123 'a'
+12 '3'
+Undefined
+
+21. What is the value of x and c?
+int x;
+char c;
+scanf("%d%*d%c", &x, &c);
+given that the input data is: "12 35\n"
+12 ' '
+12 '3'
+12 '\n'
+Input error
+
+22. What is the final value of x?
+int x = 20;
+int b = 10;
+b % 2 && ++x > 20;
+20
+21
+1
+undefined
+
+23. What is the final value of x?
+int x = 30;
+int b = 10;
+b % 2 || x++;
+30
+31
+10
+undefined
+
+24. Choose the correct sentence about these codes:
+int x = 0;
+for (int i = 1; i <= 3; ++i) {
+  int x = 0;
+  x += i;
+}
+printf("%d\n", x);
+Number 6 will be printed
+Number 0 will be printed
+Number 3 will be printed
+There is a syntax error
+
+25. What is the final value of x
+int x = 0;
+for (int i = 1; i <= 3;) {
+  int y = 0;
+  y += i;
+  x += y;
+  ++i;
+  if (i > 2) {
+    break;
+  }
+}
+6
+3
+15
+Infinite loop
