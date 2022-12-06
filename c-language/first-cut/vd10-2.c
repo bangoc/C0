@@ -19,10 +19,13 @@ int main(int argc, char *argv[]) {
     return 1;
   }
   int c;
+  long sz = 0;
   while ((c = fgetc(inp)) != EOF) {
     fputc(c, out);
+    ++sz;
   }
   fclose(inp);
   fclose(out);
+  printf("Hoàn thành sao chép %ld (bytes)\n", sz);
   return 0;
 }
