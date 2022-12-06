@@ -17,5 +17,8 @@ int main() {
   fesetround(FE_TONEAREST);
   printf("%.1f\n", (8.5 + 9.0) / 2);
   printf("%.1f\n", (8.5 + 10) / 2);
+
+  fesetround(FE_DOWNWARD);
+  printf("%.2f\n", 1.555 / 2);
   return 0;
 }
