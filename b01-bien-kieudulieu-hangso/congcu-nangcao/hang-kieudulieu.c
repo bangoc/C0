@@ -129,5 +129,6 @@ int main() {
   PRINT_TYPENAME(-c);
   const int ci = 101;
   PRINT_TYPENAME(ci);
+  PRINT_TYPENAME(3e1L);
   return 0;
 }
