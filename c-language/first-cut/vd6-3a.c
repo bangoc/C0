@@ -13,6 +13,6 @@ void inc10(int x) {
 int main() {
   int x = 100;
   inc10(x);
-  printf("(sau khi gọi inc10) x = %d\n", x);
+  printf("(Trong main) x = %d\n", x);
   return 0;
 }

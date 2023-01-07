@@ -10,6 +10,6 @@ void inc10() {
 int main() {
   x = 100;
   inc10();
-  printf("(sau inc10()) x = %d\n", x);
+  printf("(Trong main) x = %d\n", x);
   return 0;
 }
