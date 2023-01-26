@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-// Đọc 1 dòng nhưng không quá n ký tự, không lưu
+// Đọc 1 dòng nhưng không quá n - 1 ký tự, không lưu
 // ký tự '\n', trả về độ dài chuỗi kết quả
 int my_gets(char *s, int n) {
   int idx = 0, ch;
@@ -21,7 +21,7 @@ int my_gets(char *s, int n) {
 
 int main() {
   char s[10];
-  int n = my_gets(s, 10);
-  printf("Chuỗi đã nhập: %s\nn: %d\n", s, n);
+  int cc = my_gets(s, 10);
+  printf("Chuỗi đã nhập: %s\ncc = %d\n", s, cc);
   return 0;
 }
