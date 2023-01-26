@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-// Đọc 1 dòng nhưng không quá n ký tự và không lưu
+// Đọc 1 dòng nhưng không quá n ký tự, không lưu
 // ký tự '\n', trả về độ dài chuỗi kết quả
 int my_gets(char *s, int n) {
   int idx = 0, ch;

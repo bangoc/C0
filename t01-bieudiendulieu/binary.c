@@ -56,7 +56,7 @@ void register_all() {
 int main(int argc, char *argv[]) {
   if (argc < 3) {
     printf("Usage: ./binary type numeric_value\n"
-           "Supported types are char, short, int, float\n");
+           "Supported types are char, short, int, float, double\n");
     return 1;
   }
   register_all();

@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 int main() {
-  char c[100][100];
+  char ss[100][100];
   int n;
   printf("Nhập số nguyên dương n <= 100: ");
   scanf("%d", &n);
@@ -14,11 +14,11 @@ int main() {
   while (getchar() != '\n') ;
   for (int i = 0; i < n; ++i) {
     printf("Chuỗi %d: ", i);
-    scanf("%[^\n]%*c", c[i]);
+    scanf("%[^\n]%*c", ss[i]);
   }
   printf("Các chuỗi theo thứ tự ngược lại: \n");
   for (int i = n - 1; i >= 0; --i) {
-    printf("%s\n", c[i]);
+    printf("%s\n", ss[i]);
   }
   return 0;
 }

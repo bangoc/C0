@@ -10,7 +10,7 @@
 
 int main() {
   char s[20];
-  fgets(s, 20, stdin);
+  scanf("%[^\n]%*c", s);
   int cc =0;
   for (char *p = s; *p; ++p) {
     if (isupper(*p)) {
