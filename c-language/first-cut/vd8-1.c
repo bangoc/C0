@@ -6,18 +6,17 @@
 #include <stddef.h>
 
 struct s1 { int x; char c; int y; };
-struct s2 { float x, y, z; };
-union g1 { float x; double d; };
-union g2 { struct s2 p; double d; };
+struct s2 { int x, y, z; };
+union g1 { char s[9]; double d; };
+union g2 { float f; double d; };
 
 int main() {
-  printf("sizeof:\nchar: %zu, int: %zu, float: %zu, double: %zu\n",
-         sizeof(char), sizeof(int), sizeof(float), sizeof(double));
   printf("sizeof(struct s1) = %zu\n", sizeof(struct s1));
-  printf("offsetof(struct s1, c) = %zu\n", offsetof(struct s1, c));
-  printf("offsetof(struct s1, y) = %zu\n", offsetof(struct s1, y));
+  printf("offset: %zu %zu %zu\n", offsetof(struct s1, x), 
+          offsetof(struct s1, c), offsetof(struct s1, y));
   printf("sizeof(struct s2) = %zu\n", sizeof(struct s2));
   printf("sizeof(union g1) = %zu\n", sizeof(union g1));
+  printf("offset: %zu %zu\n", offsetof(union g1, s),
+          offsetof(union g1, d));
   printf("sizeof(union g2) = %zu\n", sizeof(union g2));
-  return 0;
 }

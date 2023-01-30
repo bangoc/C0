@@ -4,8 +4,14 @@
 */
 
 #include <stdio.h>
-typedef union generic_type {long l; double d;} gtype;
-typedef struct tagged_gtype {char tag; gtype val;} tgt;
+typedef union generic_type {
+  long l; 
+  double d;
+} gtype;
+typedef struct tagged_gtype {
+  char tag; 
+  gtype val;
+} tgt;
 void print_tgt(tgt x) {
   if (x.tag == 'l') {
     printf("%ld: long\n", x.val.l);
@@ -18,5 +24,4 @@ int main() {
       v2 = {'d', {.d = 3.5}};
   print_tgt(v1);
   print_tgt(v2);
-  return 0;
 }

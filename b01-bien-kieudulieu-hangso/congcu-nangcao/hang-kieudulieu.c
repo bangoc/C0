@@ -35,6 +35,9 @@
             double: "double", \
             long double: "long double", \
             const int: "const int", \
+            int *: "int *", \
+            const int *: "const int *", \
+            int *const: "int *const ", \
             default: "still not specified")
 
 #define PRINT_TYPENAME(constant) \
@@ -97,7 +100,7 @@ int main() {
 
   if ('\0' == 0) {
     printf("Mã số của '\\0' bằng 0\n");
-  } else {
+  } else { 
     printf("Có gì đó sai.\n");
   }
   PRINT_TYPENAME(((char)'A'));
@@ -130,5 +133,11 @@ int main() {
   const int ci = 101;
   PRINT_TYPENAME(ci);
   PRINT_TYPENAME(3e1L);
+  int *pi;
+  const int *pci;
+  int *const cpi;
+  PRINT_TYPENAME(pi);
+  PRINT_TYPENAME(pci);
+  PRINT_TYPENAME(cpi);
   return 0;
 }
