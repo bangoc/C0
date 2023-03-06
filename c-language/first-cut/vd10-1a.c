@@ -16,6 +16,6 @@ int main() {
   printf("%d + %d = %d\n", a, b, a + b);
 
   // Xuất ra stderr
-  fprintf(stderr, " Test error message\n");
+  fprintf(stderr, "Test error message\n");
   return 0;
 }

@@ -19,6 +19,6 @@ int main() {
 
   scanf("%d%d", &a, &b);  // inp.txt
   printf("%d + %d = %d\n", a, b, a + b); // out.txt
-  fprintf(stderr, " Test error message\n");  // err.txt
+  fprintf(stderr, "Test error message\n");  // err.txt
   return 0;
 }

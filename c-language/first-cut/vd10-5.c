@@ -6,26 +6,27 @@
 
 #include <stdio.h>
 
-#define MAXSIZE 1024
+#define BUFFSIZE 1024
 
 int main(int argc, char *argv[]) {
   if (argc != 3) {
-    printf("Usage: ./prog source dest\n");
+    printf("Usage: ./copy source dest\n");
     return 1;
   }
-  char *iname = argv[1], *oname = argv[2];
-  FILE *inp = fopen(iname, "rb"),
-       *out = fopen(oname, "wb");
+  FILE *inp = fopen(argv[1], "rb"),
+       *out = fopen(argv[2], "wb");
   if (!inp || !out) {
-    printf("Lỗi mở tệp\n");
+    fprintf(stderr, "Lỗi mở tệp\n");
     return 1;
   }
-  unsigned char buff[MAXSIZE];
+  unsigned char buff[BUFFSIZE];
+  long sz = 0;
   while (!feof(inp)) {
-    int n = fread(buff, 1, MAXSIZE, inp);
+    int n = fread(buff, 1, BUFFSIZE, inp);
     fwrite(buff, 1, n, out);
+    sz += n;
   }
   fclose(inp);
   fclose(out);
-  return 0;
+  printf("Hoàn thành sao chép %ld (bytes)\n", sz);
 }

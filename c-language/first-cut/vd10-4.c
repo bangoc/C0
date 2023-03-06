@@ -12,14 +12,13 @@
 
 int main(int argc, char *argv[]) {
   if (argc != 3) {
-    printf("Usage: ./prog inp.txt out.txt\n");
+    printf("Usage: ./inverse inp.txt out.txt\n");
     return 1;
   }
-  char *iname = argv[1], *oname = argv[2];
-  FILE *inp = fopen(iname, "r"),
-       *out = fopen(oname, "w");
+  FILE *inp = fopen(argv[1], "r"),
+       *out = fopen(argv[2], "w");
   if (!inp || !out) {
-    printf("Lỗi mở tệp\n");
+    fprintf(stderr, "Lỗi mở tệp\n");
     return 1;
   }
   int n = 0;
@@ -32,5 +31,4 @@ int main(int argc, char *argv[]) {
   }
   fclose(inp);
   fclose(out);
-  return 0;
 }

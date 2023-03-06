@@ -8,14 +8,14 @@
 
 int main(int argc, char *argv[]) {
   if (argc != 3) {
-    printf("Usage: ./prog source dest\n");
+    printf("Usage: ./copy source dest\n");
     return 1;
   }
   char *iname = argv[1], *oname = argv[2];
   FILE *inp = fopen(iname, "rb"),
        *out = fopen(oname, "wb");
   if (!inp || !out) {
-    printf("Lỗi mở tệp\n");
+    fprintf(stderr, "Lỗi mở tệp\n");
     return 1;
   }
   int c;

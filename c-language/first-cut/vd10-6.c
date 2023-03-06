@@ -6,10 +6,9 @@
 */
 
 #include <stdio.h>
-
 int main(int argc, char *argv[]) {
   if (argc != 2) {
-    printf("Usage: ./prog inp.txt\n");
+    printf("Usage: ./sizeof file.txt\n");
     return 1;
   }
   FILE *inp = fopen(argv[1], "rb");
@@ -17,5 +16,4 @@ int main(int argc, char *argv[]) {
   long sz = ftell(inp);
   printf("Size = %ld bytes\n", sz);
   fclose(inp);
-  return 0;
 }
