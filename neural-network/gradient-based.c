@@ -1,18 +1,17 @@
 /* Nguyễn Bá Ngọc 24-03-2026 */
 /*
 Huấn luyện 1 perceptron sử dụng giá trị thô của sai số
-x0 = 1 --
-         \w0
-          \ ----->g(z) = 1/(1 + e^-z) --> y
-          /  /
-         /w1/
-x1 -----/  /w2
-          /
-x2 ------/
+x0 ---
+       \w0
+        \ -----> o = g(x0 * w0 + x1 * w1 + b)
+         /
+        /w1
+x1 --- /
+
+Sử dụng hàm sigmoid làm hàm kích hoạt g(x) = 1 / (1 + e^-x)
 dg = g * (1 - g)
-de/dy = -2(t - y) * y * (1 - y)
-w = w - n * de/dy * x
-Sử dụng 1 biến nhập x0 = 1 để biểu diễn độ lệch
+diff = -2(t - o) * o * (1 - o)
+w = w - n * diff * x
 */
 #include <math.h>
 #include <stdio.h>
@@ -23,48 +22,52 @@ float activate(float x) {
   return 1 / (1 + exp(-x));
 }
 
+float randw() {
+  return (rand() + 1.0) / (rand() + 1.0);
+}
+
+#define ITER 1000
+#define R 1.5
+
 int main() {
-  float d[][3] = {
-    {1, 0, 0},
-    {1, 0, 1},
-    {1, 1, 0},
-    {1, 1, 1}
+  float xx[][3] = {
+    {0, 0},
+    {0, 1},
+    {1, 0},
+    {1, 1}
   };
-  int t[] = {
+  int tt[] = {
     0,
     0,
     0,
     1
   };
-  if (sizeof(d) / sizeof(d[0]) != sizeof(t) / sizeof(t[0])) {
+  if (sizeof(xx) / sizeof(xx[0]) != sizeof(tt) / sizeof(tt[0])) {
     printf("Dữ liệu huấn luyện không hợp lệ.\n");
     return 0;
   }
-  const int k_samples = sizeof(t)/sizeof(t[0]);
-  const int k_iter = 1000;
-  const float k_rate = 1.5;
+  const int k_samples = sizeof(tt)/sizeof(tt[0]);
 
   /* Khởi tạo ngẫu nhiên các trọng số lan truyền */
   srand(time(NULL));
-  float w[3];
-  for (int i = 0; i < 3; ++i) {
-      w[i] = (rand() + 1.0) / (rand() + 1.0);
-  }
+  float w[2] = {randw(), randw()};
+  float b = randw();
 
   /* Huấn luyện */
-  for (int i = 0; i < k_iter; ++i) {
+  for (int iter = 0; iter < ITER; ++iter) {
     float e = 0;
-    for (int j = 0; j < k_samples; ++j) {
-      float *x = d[j];
-      float y = activate(x[0] * w[0] + x[1] * w[1] + x[2] * w[2]);
-      printf("iter %d: w0 = %.2f w1 = %.2f w2 = %.2f x1 = %.2f x2 = %.2f "
-             "t = %d y = %.2f\n", i + 1, w[0], w[1], w[2], x[1], x[2], t[j], y);
-      float diff = -2 * (t[j] - y) * y * (1 - y);
-      w[0] -= k_rate * diff * x[0];
-      w[1] -= k_rate * diff * x[1];
-      w[2] -= k_rate * diff * x[2];
-      e += (t[j] - y) * (t[j] - y);
+    for (int i = 0; i < k_samples; ++i) {
+      float *x = xx[i];
+      int t = tt[i];
+      float o = activate(x[0] * w[0] + x[1] * w[1] + b);
+      printf("iter %d: w0 = %.2f w1 = %.2f b = %.2f x0 = %.2f x1 = %.2f "
+             "t = %d o = %.2f\n", i + 1, w[0], w[1], b, x[0], x[1], t, o);
+      float diff = -2 * (t - o) * o * (1 - o);
+      w[0] -= R * diff * x[0];
+      w[1] -= R * diff * x[1];
+      b -= R * diff;
+      e += (t - o) * (t - o);
     }
-    printf("e = %.2f\n", e);
+    printf("e = %.5f\n", e);
   }
 }
